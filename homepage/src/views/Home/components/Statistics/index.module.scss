@@ -1,0 +1,109 @@
+$padding-top: 66px;
+
+.main {
+  background-color: var(--primary-bg-color);
+  padding: $padding-top var(--min-content-margin);
+
+  .wrap {
+    background-color: var(--secondary-bg-color);
+    border-radius: 12px;
+    box-shadow: 0 1px 4px 0 rgb(0 0 0 / 12%);
+    height: 182px;
+
+    margin-top: - calc($padding-top + 58px);
+    width: var(--min-content-width);
+
+    .static {
+      width: 290px;
+
+      .title {
+        color: #f8fbff;
+        color: var(--primary-text-color);
+        font-size: 18px;
+        font-weight: 600;
+        height: 20px;
+        line-height: 20px;
+        text-align: center;
+      }
+
+      .amount {
+        color: #47f;
+        font-size: 38px;
+        font-weight: 600;
+        height: 38px;
+        line-height: 38px;
+        text-align: center;
+      }
+
+      .sub-title {
+        color: #777c85;
+        font-size: 16px;
+        height: 24px;
+        line-height: 24px;
+        text-align: center;
+      }
+    }
+
+    .divider {
+      height: 126px;
+      width: 2px;
+
+      &.light {
+        background: linear-gradient(180deg, rgb(255 255 255 / 0%) 0%, #d2deff 51%, #fff 100%);
+      }
+
+      &.dark {
+        background: linear-gradient(180deg, rgb(255 255 255 / 0%) 0%, #d2deff 51%, rgb(255 255 255 / 0%) 100%);
+      }
+    }
+  }
+
+  .advantage {
+    color: var(--primary-text-color);
+    font-size: 36px;
+    font-weight: 600;
+    height: 44px;
+    line-height: 44px;
+    margin: 120px 0 58px;
+    width: 182px;
+  }
+
+  .row {
+    width: calc(var(--min-content-width) + 24px);
+  }
+
+  .item {
+    background: var(--secondary-bg-color);
+    border-radius: 12px;
+    box-shadow:
+      0 1px 4px 0 rgb(0 0 0 / 12%),
+      0 -1px 4px 0 rgb(0 0 0 / 12%);
+    box-sizing: border-box;
+    height: 198px;
+    padding: 24px;
+
+    :global(.wrap) {
+      margin: 0 14px 0 24px;
+    }
+
+    .text {
+      color: var(--primary-text-color);
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 600;
+      height: 24px;
+      line-height: 24px;
+      margin: 10px 0 12px;
+      text-align: left;
+    }
+
+    .sub {
+      color: var(--secondary-text-color);
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 26px;
+      text-align: justify;
+    }
+  }
+}

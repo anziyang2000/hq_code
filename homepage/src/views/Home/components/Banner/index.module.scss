@@ -1,0 +1,36 @@
+.banner {
+  background-image: url('/src/assets/banner.webp');
+  background-position: center center; /* 从右边裁剪并居中对齐 */
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  // width: 100%;width
+  height: 600px;
+  padding: 0 var(--min-content-margin);
+
+  .content {
+    padding-top: 140px;
+    width: var(--min-content-width);
+
+    .title {
+      color: #222426;
+      font-size: 48px;
+      font-style: normal;
+      font-weight: 500;
+      height: 72px;
+      line-height: 72px;
+      text-align: left;
+    }
+
+    .desc {
+      color: #777c85;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 32px;
+      margin-top: 24px;
+      text-align: left;
+      width: 568px;
+    }
+  }
+}

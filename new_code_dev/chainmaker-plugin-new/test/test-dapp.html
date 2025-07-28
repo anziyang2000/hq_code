@@ -1,0 +1,576 @@
+<!--
+  ~ /*
+  ~  Copyright (C) THL A29 Limited, a Tencent company. All rights reserved.
+  ~  SPDX-License-Identifier: Apache-2.0
+  ~  */
+  -->
+
+  <!DOCTYPE html>
+  <html lang="en">
+  
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" type="image/png"
+      href="https://git.chainmaker.org.cn/uploads/-/system/appearance/favicon/1/favicon.ico" id="favicon"
+      data-original-href="https://git.chainmaker.org.cn/uploads/-/system/appearance/favicon/1/favicon.ico">
+    <title>Test Dapp</title>
+    <script src="./js/jsrsasign.js"></script>
+    <style>
+      label {
+        margin-bottom: 20px;
+      }
+  
+      label,
+      button {
+        display: block;
+      }
+  
+      .mt {
+        margin-top: 60px;
+      }
+      input{
+        margin-right: 20px;
+      }
+    </style>
+  </head>
+  
+  <body>
+    <h1>Dapp接入插件测试</h1>
+    <h2>基础合约</h2>
+    <label for="contractName">
+      合约名称
+      <input type="text" name="contractName" id="contractName">举例：chainmakerchrome16
+    </label>
+    <label for="chainId">
+      链ID
+      <input type="text" value="chainmaker_testnet_pk" name="chainId" id="chainId">举例：chainmaker_testnet_chain
+    </label>
+    <label for="accountAddress">
+      用户地址
+      <input type="text" name="accountAddress" id="accountAddress">举例：e70e4c72e12d3ef07768a281fec694c151812d57
+    </label>
+    <label for="contractFile">
+      合约文件
+      <input type="file" name="contractFile" id="contractFile">
+    </label>
+    <label for="contractParams">
+      Params
+      <input type="text" name="contractParams" id="contractParams">举例：{"key":"value","name":"test"}
+    </label>
+    <button onclick="createUserContract()">
+      创建合约
+    </button>
+    <button class="mt" onclick="invokeUserContract()">
+      发起上链
+    </button>
+  
+    <br />
+    <hr />
+    <br />
+  
+    <h2>erc20 transfer</h2>
+    <label for="erc20ContractName">
+      合约名称
+      <input type="text" name="erc20ContractName" id="erc20ContractName" value="erc20">举例：erc20
+    </label>
+    <label for="erc20To">
+      目标账户
+      <input type="text" name="erc20To" id="erc20To"
+        value="b55ba7b2922bf8e3f69197603fe011578f5c0789">举例：b55ba7b2922bf8e3f69197603fe011578f5c0789
+    </label>
+    <label for="erc20ToSum">
+      转账数量
+      <input type="number" name="erc20ToSum" id="erc20ToSum" value="100">举例：100
+    </label>
+    <button class="mt" onclick="transfer()">
+      转账
+    </button>
+  
+    <br />
+    <hr />
+    <br />
+  
+    <h2>erc20 Mint</h2>
+    <label for="nftContractName">
+      合约名称
+      <input type="text" name="nfMintContractName" id="nfMintContractName" value="erc20">举例：erc20
+    </label>
+    <label for="nfMintTo">
+      目标账户
+      <input type="text" name="nfMintTo" id="nfMintTo"
+        value="075c22b39f9a7bc1af488b1086010ce9a3b8222a">举例：075c22b39f9a7bc1af488b1086010ce9a3b8222a
+    </label>
+  
+    <button class="mt" onclick="nfMint()">
+      发行
+    </button>
+  
+  
+  
+    <br />
+    <hr />
+    <br />
+  
+    <h2>nft Mint</h2>
+    <label for="nftContractName">
+      合约名称
+      <input type="text" name="nftContractName" id="nftContractName" value="erc721">举例：erc721
+    </label>
+    <label for="nftCategoryName">
+      nft分类名称
+      <input type="text" name="nftCategoryName" id="nftCategoryName" value="">举例：erc721
+    </label>
+    <label for="nftCategoryURI">
+      nft分类uri
+      <input type="text" name="nftCategoryURI" id="nftCategoryURI" value="">
+    </label>
+    <label for="nftTo">
+      目标账户
+      <input type="text" name="nftTo" id="nftTo"
+        value="">
+    </label>
+    <label for="tokenURI">
+      tokenURI
+      <input type="text" name="tokenURI" id="tokenURI"
+        value="http://127.0.0.1:8000/tokenURI.json">举例：http://127.0.0.1:8000/tokenURI.json
+    </label>
+    <label for="metadata">
+      metadata
+      <textarea type="text" name="metadata" id="metadata" style="height:200px; width: 400px;">
+      {
+        "author":"hillman",
+        "orgName":"北京美好景象图片有限公司",
+        "seriesName":"皮影",
+        "description":"皮影戏皮影戏皮影戏",
+        "image":"https://file.wespace.cn/savepath/gl_data_file/2020-12-18/b1/af0d51f03823d6fc33b09a0468e9229a5e1605dd26063263abd0a6ec382d89af.jpg",
+        "seriesHash":"WSPtWMYHC5M"
+      }
+    </textarea>
+   
+    </label>
+    <button class="mt" onclick="nftMint()">
+      发行
+    </button><br />
+    <button class="mt" onclick="createOrSetCategory()">
+      设置分类
+    </button><br />
+    <hr />
+    <br />
+  
+    <h2>account</h2>
+    <br>
+    <label for="account-chainId">
+      链ID
+      <input type="text" value="chainmaker_testnet_chain" name="account-chainId" id="account-chainId">举例：chainmaker_testnet_chain
+    </label>
+    <label for="account-address">
+      用户地址
+      <input type="text" name="account-address" id="account-address">举例：e70e4c72e12d3ef07768a281fec694c151812d57
+    </label>
+    <label for="account-public">
+      验签用户公钥
+      <input type="file" name="account-public" id="account-public">
+    </label>
+    <button class="mt" onclick="connectAccount()">
+      打开授权
+    </button>
+    <button class="mt" onclick="openAccountExport()">
+      打开导出账号
+    </button>
+    <div>
+      授权结果: <div id="connect-accounts"></div>
+    </div>
+    <button class="mt" onclick="checkConnectAccount()">
+      打开验签
+    </button>
+    <br>
+    <div>
+      验签结果: <div id="check-connect-accounts"></div>
+    </div>
+  
+    <div>
+      插件是否加载脚本完成 :<div id="plugin-load">未加载完成</div>
+    </div>
+    <br>
+    <button class="mt" onclick="getConnectAccounts()">
+      重新拉取当前插件授权用户
+    </button>
+   
+    <div>
+      web 主动拉取获取授权的用户列表 :<div id="get-connect-accounts"></div>
+    </div>
+    <br>
+    <div>
+      插件操作用户授权记录:<div id="plugin-connect-accounts"></div>
+    </div>
+    <br>
+    <div>
+      插件操作删除用户记录:<div id="plugin-delete-accounts"></div>
+    </div>
+    <br>
+    <div>
+      插件操作删除链记录:<div id="plugin-delete-chains"></div>
+    </div>
+    <br>
+    <div>
+      插件操作切换账户记录:<button onclick="clearChangeAccount()">清空</button><div id="plugin-change-account"></div>
+    </div>
+  
+    <br>
+    <hr />
+    <button class="mt" onclick="importChainConfig()">
+      导入链配置
+    </button>
+    <hr />
+    <br>
+    <div>
+      <label for="">
+        链id
+        <textarea type="text" name="importAcountChainId" id="importAcountChainId" value=""></textarea>
+      </label>
+      <label for="">
+        组织id
+        <textarea type="text" name="importAcountOrgId" id="importAcountOrgId" value=""></textarea>
+      </label>
+      <label for="">
+        账户名称
+        <textarea type="text" name="importAcountUserName" id="importAcountUserName" value=""></textarea>
+      </label>
+      <label for="">
+        账户签名私钥
+        <textarea type="text" name="importAcountuserSignKeyContent" id="importAcountuserSignKeyContent" value=""></textarea>
+      </label>
+      <label for="">
+        账户公钥（pk模式需要）
+        <textarea type="text" name="importAcountuserPublicKeyContent" id="importAcountuserPublicKeyContent" value=""></textarea>
+      </label>
+      <label for="">
+        账户签名证书（cert模式需要）
+        <textarea type="text" name="importAcountuserSignCrtContent" id="importAcountuserSignCrtContent" value=""></textarea>
+      </label>
+    </div>
+    <button class="mt" onclick="importAccountConfig()">
+      导入链账户
+    </button>
+
+
+    <br>
+    <input placeholder="待签名内容 hex string" />
+    <input placeholder="待签名内容 hex string" />
+    <button class="mt" onclick="getAccountSignature()">
+      指定账号签名
+    </button>
+    <script>
+  
+      function importChainConfig (){
+        window.chainMaker.sendRequest('importChainConfig', {
+          body:{
+            'chainId':"chain1",
+            'chainName':"dev-chain1",
+            'nodeIp':"9.134.214.76:12301",
+            'tlsEnable':true, 
+            'accountMode':"permissionedWithCert",
+            'protocol':"GRPC", 
+            'hostName':"", 
+            'browserLink':""
+          }
+        }, res => {
+          console.log('importChainConfig complete', res);
+        })
+      }
+      function importAccountConfig (){
+        window.chainMaker.sendRequest('importAccountConfig', {
+          chainId:document.getElementById("importAcountChainId").value,
+          body:{
+          userSignKeyName:"clent.sig.key",
+          userSignCrtName:"clent.cert.crt",
+          userPublicKeyName:"clent.pub.pem",
+          userSignKeyContent:document.getElementById("importAcountuserSignKeyContent").value ,
+          userSignCrtContent:document.getElementById("importAcountuserSignCrtContent").value||'' ,
+          userPublicKeyContent:document.getElementById("importAcountuserPublicKeyContent").value||'',
+          name: document.getElementById("importAcountUserName").value,
+          orgId:document.getElementById("importAcountOrgId").value,
+          }
+        }, res => {
+          console.log('importAccountConfig complete', res);
+        })
+      }
+
+      async function createUserContract() {
+        let contractFile = document.getElementsByName('contractFile')[0].files[0];
+        const chainId = document.getElementById('chainId').value;
+        const accountAddress = document.getElementById('accountAddress').value;
+        const contractName = document.getElementById('contractName').value;
+        const params = document.getElementById('contractParams').value; 
+        if (!contractFile || !contractName) {
+          return;
+        }
+        const body = {
+          contractName,
+          contractVersion: 'v1.0.0',
+          contractFile: await file2BinaryString(contractFile),
+          runtimeType: 'DOCKER_GO',//'WASMER', //
+          params: params ? JSON.parse(params) : {},
+          // limit:{ gasLimit: 1000 }
+        };
+        window.chainMaker.createUserContract({
+          body,
+          accountAddress,
+          chainId,
+          contractName,
+          ticket: Date.now().toString()
+        })
+      }
+  
+  
+      function transfer() {
+        const erc20ContractName = document.getElementById('erc20ContractName').value;
+        const erc20To = document.getElementById('erc20To').value;
+        const erc20ToSum = document.getElementById('erc20ToSum').value;
+        window.chainMaker.invokeUserContract({
+          body: {
+            contractName: erc20ContractName,
+            params: {
+              amount: erc20ToSum,
+              to: erc20To,
+              time: Date.now() / 1000 | 0,
+            },
+            method: 'Transfer'
+          },
+          ticket: Date.now().toString()
+        })
+      }
+  
+  
+      
+      function nfMint(){
+        const nfMintContractName = document.getElementById('nfMintContractName').value;
+        const nfMintTo = document.getElementById('nfMintTo').value;
+        if (!contractName) {
+          return;
+        }
+        window.chainMaker.invokeUserContract({
+          body: {
+            contractName: nfMintContractName,
+            params: {
+              account:nfMintTo,
+              amount:"1000",
+              time: Date.now() / 1000 | 0,
+            },
+            method: 'Mint'
+          },
+          ticket: Date.now().toString()
+        })
+      }
+      
+      function createOrSetCategory(){
+        const nftContractName = document.getElementById('nftContractName').value;
+        const nftCategoryName = document.getElementById('nftCategoryName').value;
+        const nftCategoryURI = document.getElementById('nftCategoryURI').value;
+    
+        
+       
+        if (!contractName) {
+          return;
+        }
+        
+        window.chainMaker.invokeUserContract({
+          body: {
+            contractName: nftContractName,
+            params: {
+              category: JSON.stringify({
+                categoryName: nftCategoryName,
+                categoryURI: nftCategoryURI
+              }),
+              tokenId:Date.now() / 1000,
+              time: Date.now() / 1000 | 0,
+           
+            },
+            method: 'CreateOrSetCategory'
+          },
+          ticket: Date.now().toString()
+        })
+      }
+  
+      function nftMint(){
+        const nftContractName = document.getElementById('nftContractName').value;
+        const nftTo = document.getElementById('nftTo').value;
+        const tokenURI = document.getElementById('tokenURI').value;
+        const metadata = document.getElementById('metadata').value;
+        const nftCategoryName = document.getElementById('nftCategoryName').value;
+        if (!contractName) {
+          return;
+        }
+        
+        window.chainMaker.invokeUserContract({
+          body: {
+            contractName: nftContractName,
+            params: {
+              to:nftTo,
+              metadata,
+              categoryName: nftCategoryName, //asdf123
+              tokenURI,
+              tokenId:Date.now() / 1000,
+              time: Date.now() / 1000 | 0,
+            },
+            method: 'Mint'
+          },
+          ticket: Date.now().toString()
+        })
+      }
+  
+      function invokeUserContract(type) {
+        const contractName = document.getElementById('contractName').value;
+        const chainId = document.getElementById('chainId').value;
+        const accountAddress = document.getElementById('accountAddress').value;
+        if (!contractName) {
+          return;
+        }
+        window.chainMaker.invokeUserContract({
+          chainId,
+          accountAddress,
+          body: {
+            contractName,
+            params: {
+              file_hash: '1234567890',
+              file_name: 'test.txt',
+              time: Date.now() / 1000 | 0,
+            },
+            method: 'save'
+          },
+          ticket: Date.now().toString()
+        })
+      }
+  
+      function file2BinaryString(file) {
+        return new Promise(function (resolve) {
+          const reader = new FileReader();
+          const readFile = function () {
+            resolve(reader.result);
+          };
+  
+          reader.addEventListener('load', readFile);
+          reader.readAsBinaryString(file);
+        });
+      }
+  
+  
+      function connectAccount() {
+        const chainId = document.getElementById('account-chainId').value;
+        window.chainMaker.sendRequest('openConnect', {
+          chainId: chainId
+        }, res => {
+          document.getElementById("connect-accounts").innerHTML = JSON.stringify(res.info);
+        })
+      }
+
+      function openAccountExport() {
+        const chainId = document.getElementById('account-chainId').value;
+        window.chainMaker.sendRequest('openAccountExport', {
+          chainId: chainId
+        }, res => {
+          document.getElementById("connect-accounts").innerHTML = JSON.stringify(res.info);
+        })
+      }
+  
+      async function checkConnectAccount(){
+        const chainId = document.getElementById('account-chainId').value;
+        const accountAddress = document.getElementById('account-address').value;
+        const publicKey = await file2BinaryString(document.getElementsByName('account-public')[0].files[0]);
+        const signStr = randomString(64);
+        window.chainMaker.sendRequest('openAccountSignature', {
+          chainId,
+          accountAddress,
+          body: signStr
+        }, res => {
+          console.log(res);
+          if(res?.info?.code===0){
+            let signatureVf = new KJUR.crypto.Signature({alg:"SHA1withRSA"});
+            signatureVf.init(publicKey);
+            signatureVf.updateString(signStr);
+            // console.log(res.info);
+            let pass = signatureVf.verify(b64tohex(res.info.res));
+            console.log(`发送的随机数：${signStr}
+            返回的随机数：${JSON.stringify(res.info)}`)
+            document.getElementById("check-connect-accounts").innerHTML = `是否相同（通过）：${pass}`;
+          }else{
+            document.getElementById("check-connect-accounts").innerHTML = `结果：${JSON.stringify(res?.info)}`;
+          }
+        })
+      }
+  
+      function getConnectAccounts(){
+        window.chainMaker.sendRequest('getConnectAccounts', {}, res => {
+          document.getElementById("get-connect-accounts").innerHTML = JSON.stringify(res.info);
+        })
+      }
+
+
+      function getAccountSignature(){
+        window.chainMaker.sendRequest('getAccountSignature', {}, res => {
+          document.getElementById("accountSignature").innerHTML = JSON.stringify(res.info);
+        })
+      }
+  
+      /**
+       * 接收来自插件发送的反馈消息
+       */
+      window.chainMaker = {
+        onLoad:function(){
+          document.getElementById("plugin-load").innerText="加载完成";
+          chainMaker.on('changeConnectedAccounts',function(data){
+            const p = document.createElement("p");
+            p.innerHTML = JSON.stringify(data.info);
+            document.getElementById("plugin-connect-accounts").appendChild(p);
+          })
+          chainMaker.on('deleteChainAccounts',function(data){
+            const p = document.createElement("p");
+            p.innerHTML = JSON.stringify(data.info);
+            document.getElementById("plugin-delete-accounts").appendChild(p);
+          })
+          chainMaker.on('deleteChain',function(data){
+            const p = document.createElement("p");
+            p.innerHTML = JSON.stringify(data.info);
+            document.getElementById("plugin-delete-chains").appendChild(p);
+          })
+          chainMaker.on('changeCurrentAccount',function(data){
+            const p = document.createElement("p");
+            p.innerHTML = JSON.stringify(data.info);
+            p.style.borderBottom = '1px solid #ccc';
+            document.getElementById("plugin-change-account").appendChild(p);
+          })
+        }
+      };
+  
+      function clearChangeAccount(){
+        document.getElementById("plugin-change-account").innerHTML = "";
+      }
+      /*
+      // 签名
+      var sig = new KJUR.crypto.Signature({"alg": "SHA1withRSA"});
+      sig.init(prvKeyPEM);
+      sig.updateString(src2);
+      var hSigVal = hex2b64(sig.sign());
+      console.log('sig',hSigVal);
+  
+      // 验签
+      let signatureVf = new KJUR.crypto.Signature({alg:"SHA1withRSA"});
+      signatureVf.init(pubkey);
+      signatureVf.updateString(src2);
+      console.log(signatureVf);
+      let b = signatureVf.verify(b64tohex(hSigVal));
+      console.log(b);
+      */
+      function randomString(e) {    
+        e = e || 32;
+        var t = "ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678",
+        a = t.length,
+        n = "";
+        for (i = 0; i < e; i++) n += t.charAt(Math.floor(Math.random() * a));
+        return n
+    }
+    </script>
+  </body>
+  
+  </html>

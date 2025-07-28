@@ -1,0 +1,23 @@
+import * as jspb from 'google-protobuf'
+
+
+
+export enum SystemContract { 
+  CHAIN_CONFIG = 0,
+  CHAIN_QUERY = 1,
+  CERT_MANAGE = 2,
+  GOVERNANCE = 3,
+  MULTI_SIGN = 4,
+  CONTRACT_MANAGE = 5,
+  PRIVATE_COMPUTE = 6,
+  DPOS_ERC20 = 7,
+  DPOS_STAKE = 8,
+  SUBSCRIBE_MANAGE = 9,
+  ARCHIVE_MANAGE = 10,
+  CROSS_TRANSACTION = 11,
+  PUBKEY_MANAGE = 12,
+  ACCOUNT_MANAGER = 13,
+  RELAY_CROSS = 17,
+  TRANSACTION_MANAGER = 18,
+  T = 99,
+}

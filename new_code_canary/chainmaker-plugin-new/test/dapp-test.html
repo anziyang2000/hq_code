@@ -1,0 +1,800 @@
+<!--
+  ~ /*
+  ~  Copyright (C) THL A29 Limited, a Tencent company. All rights reserved.
+  ~  SPDX-License-Identifier: Apache-2.0
+  ~  */
+  -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" type="image/png"
+    href="https://git.chainmaker.org.cn/uploads/-/system/appearance/favicon/1/favicon.ico" id="favicon"
+    data-original-href="https://git.chainmaker.org.cn/uploads/-/system/appearance/favicon/1/favicon.ico">
+  <title>Test Dapp</title>
+  <script src="./js/jsrsasign.js"></script>
+  <link href="./bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+  <script src="./bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+  <style></style>
+</head>
+
+<body>
+
+
+  <div class="card text-center">
+    <div class="card-header">
+      Dapp接入插件测试
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">基础参数</h5>
+      <p class="card-text">
+      <div class="mb-3 row">
+        <label for="chainId" class="col-sm-2 col-form-label">链ID</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="chainId" value="chainmaker_pk">
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="accountAddress" class="col-sm-2 col-form-label">用户地址</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="accountAddress" value="">
+        </div>
+      </div>
+      </p>
+    </div>
+  </div>
+  <br>
+
+  <div class="container">
+    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home"
+          type="button" role="tab" aria-controls="pills-home" aria-selected="true">交易</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="pills-account-tab" data-bs-toggle="pill" data-bs-target="#pills-account"
+          type="button" role="tab" aria-controls="pills-account" aria-selected="false">账户操作</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile"
+          type="button" role="tab" aria-controls="pills-profile" aria-selected="false">FT</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact"
+          type="button" role="tab" aria-controls="pills-contact" aria-selected="false">NFT</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="pills-disabled-tab" data-bs-toggle="pill" data-bs-target="#pills-disabled"
+          type="button" role="tab" aria-controls="pills-disabled" aria-selected="false">导入配置</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="pills-disabled-tab" data-bs-toggle="pill" data-bs-target="#pills-did"
+          type="button" role="tab" aria-controls="pills-did" aria-selected="false">DID</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="pills-disabled-tab" data-bs-toggle="pill" data-bs-target="#pills-sdk"
+          type="button" role="tab" aria-controls="pills-sdk" aria-selected="false">SDK</button>
+      </li>
+    </ul>
+
+  </div>
+
+  <div class="container">
+    <div class="tab-content" id="pills-tabContent">
+      <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab"
+        tabindex="0">
+        <div class="card text-center">
+          <div class="card-header">
+            部署/执行合约
+          </div>
+          <div class="card-body">
+            <div class="mb-3 row">
+              <label for="contractName" class="col-sm-2 col-form-label">合约名称</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="contractName" value="">
+              </div>
+            </div>
+            <div class="mb-3 row">
+              <label for="contractFile" class="col-sm-2 col-form-label">合约文件</label>
+              <div class="col-sm-10">
+                <input type="file" class="form-control" name="contractFile" id="contractFile">
+              </div>
+            </div>
+            <div class="mb-3 row">
+              <label for="contractParams" class="col-sm-2 col-form-label">Params</label>
+              <div class="col-sm-10">
+                <textarea type="text" class="form-control" name="contractParams" id="contractParams"></textarea>
+              </div>
+            </div>
+            <div class="mb-3 row">
+              <label for="contractMethod" class="col-sm-2 col-form-label">执行方法名</label>
+              <div class="col-sm-10">
+                <textarea type="text" class="form-control" name="contractMethod" id="contractMethod"></textarea>
+              </div>
+            </div>
+            <div class="mb-3 ">
+              <button type="button" class="btn btn-primary" onclick="createUserContract()">创建合约</button>
+              <button type="button" class="btn btn-primary" onclick="invokeUserContract()">执行合约</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="tab-pane fade" id="pills-account" role="tabpanel" aria-labelledby="pills-account-tab" tabindex="0">
+
+        <div class="card text-center">
+          <div class="card-header">
+            获取账户签名
+          </div>
+          <div class="card-body">
+            <div class="mb-3 row">
+              <label for="accountSignContent" class="col-sm-2 col-form-label">待签名内容(hex)</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="accountSignContent" value="">
+              </div>
+            </div>
+            <div class="mb-3 row">
+              <label for="accountSignResult" class="col-sm-2 col-form-label">签名结果</label>
+              <div class="col-sm-10">
+                <textarea type="text" disabled class="form-control" id="accountSignResult" value=""></textarea>
+              </div>
+            </div>
+            <div class="mb-3 row">
+              <button type="button" class="btn btn-primary" onclick="getAccountSign()">获取签名</button>
+            </div>
+          </div>
+        </div>
+        <div class="card text-center">
+          <div class="card-header">
+            打开网站授权账户
+          </div>
+          <div class="card-body">
+            <div class="mb-3 row">
+              <button type="button" class="btn btn-primary" onclick="connectAccount()">打开网站授权账户</button>
+            </div>
+          </div>
+        </div>
+        <div class="card text-center">
+          <div class="card-header">
+            导出链账户
+          </div>
+          <div class="card-body">
+            <div class="mb-3 row">
+              <label for="openAccountExport" class="col-sm-2 col-form-label">Params</label>
+              <div class="col-sm-10">
+                <textarea type="text" class="form-control" name="openAccountExport" id="openAccountExport"
+                  style="height:200px">
+                  {
+                    "isSingle": true
+                  }
+              </textarea>
+              </div>
+            </div>
+
+            <div class="mb-3 row">
+              <button type="button" class="btn btn-primary" onclick="openAccountExport()">导出链账户</button>
+            </div>
+          </div>
+        </div>
+        <div class="card text-center">
+          <div class="card-header">
+            通过助记词导入链账户
+          </div>
+          <div class="card-body">
+            <div class="mb-3 row">
+              <label for="openAccountImportByMnemonic" class="col-sm-2 col-form-label">Params</label>
+              <div class="col-sm-10">
+                <textarea type="text" class="form-control" name="openAccountImportByMnemonic" id="openAccountImportByMnemonic"
+                  style="height:200px">
+                  {
+                    "mnemonic": "toddler diamond luxury metal mind enter response obvious sad hurt room blur"
+                  }
+              </textarea>
+              </div>
+            </div>
+
+            <div class="mb-3 row">
+              <button type="button" class="btn btn-primary" onclick="openAccountImportByMnemonic()">通过助记词导入链账户</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
+        <div class="card text-center">
+          <div class="card-header">
+            erc20 transfer
+          </div>
+          <div class="card-body">
+            <div class="mb-3 row">
+              <label for="erc20ContractName" class="col-sm-2 col-form-label">合约名称</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="erc20ContractName" value="">
+              </div>
+            </div>
+            <div class="mb-3 row">
+              <label for="erc20To" class="col-sm-2 col-form-label">目标账户</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="erc20To" value="">
+              </div>
+            </div>
+            <div class="mb-3 row">
+              <label for="erc20ToSum" class="col-sm-2 col-form-label">转账数量</label>
+              <div class="col-sm-10">
+                <input type="number" class="form-control" id="erc20ToSum" value="">
+              </div>
+            </div>
+            <div class="mb-3 row">
+              <button type="button" class="btn btn-primary" onclick="transfer()">转账</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab" tabindex="0">
+        <div class="card text-center">
+          <div class="card-header">
+            NFT合约
+          </div>
+          <div class="card-body">
+            <div class="mb-3 row">
+              <label for="nftCategoryName" class="col-sm-2 col-form-label">nft分类名称</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="nftCategoryName" value="">
+              </div>
+            </div>
+            <div class="mb-3 row">
+              <label for="nftCategoryURI" class="col-sm-2 col-form-label">nft分类uri</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="nftCategoryURI" value="">
+              </div>
+            </div>
+            <div class="mb-3 row">
+              <label for="nftTo" class="col-sm-2 col-form-label">目标账户</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="nftTo" value="">
+              </div>
+            </div>
+            <div class="mb-3 row">
+              <label for="nftContractName" class="col-sm-2 col-form-label">合约名</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="nftContractName" value="">
+              </div>
+            </div>
+
+            <div class="mb-3 row">
+              <label for="metadata" class="col-sm-2 col-form-label">metadata</label>
+              <div class="col-sm-10">
+                <textarea type="text"  class="form-control" id="metadata" value="" style="height:200px">
+                {
+                  "author":"hillman",
+                  "orgName":"北京美好景象图片有限公司",
+                  "name":"皮影",
+                  "description":"皮影戏皮影戏皮影戏",
+                  "image":"https://file.wespace.cn/savepath/gl_data_file/2020-12-18/b1/af0d51f03823d6fc33b09a0468e9229a5e1605dd26063263abd0a6ec382d89af.jpg",
+                  "seriesHash":"WSPtWMYHC5M"
+                }
+              </textarea>
+              </div>
+            </div>
+            <div class="mb-3">
+              <button type="button" class="btn btn-primary" onclick="nftMint()">发行 </button>
+              <button type="button" class="btn btn-primary" onclick="createOrSetCategory()">设置分类 </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="tab-pane fade" id="pills-disabled" role="tabpanel" aria-labelledby="pills-disabled-tab" tabindex="0">
+
+        <div class="card text-center">
+          <div class="card-header">
+            导入账户配置
+          </div>
+          <div class="card-body">
+            <div class="mb-3 row">
+              <label for="importAcountChainId" class="col-sm-2 col-form-label">账户所在链id</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="importAcountChainId" value="">
+              </div>
+            </div>
+            <div class="mb-3 row">
+              <label for="importAcountOrgId" class="col-sm-2 col-form-label">组织id</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="importAcountOrgId" value="">
+              </div>
+            </div>
+            <div class="mb-3 row">
+              <label for="importAcountUserName" class="col-sm-2 col-form-label">账户名称</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="importAcountUserName" value="">
+              </div>
+            </div>
+            <div class="mb-3 row">
+              <label for="importAcountuserSignKeyContent" class="col-sm-2 col-form-label">账户签名私钥</label>
+              <div class="col-sm-10">
+                <textarea type="text" class="form-control" id="importAcountuserSignKeyContent" value=""></textarea>
+              </div>
+            </div>
+            <div class="mb-3 row">
+              <label for="importAcountuserPublicKeyContent" class="col-sm-2 col-form-label"> 账户公钥（pk模式需要）</label>
+              <div class="col-sm-10">
+                <textarea type="text" class="form-control" id="importAcountuserPublicKeyContent" value=""></textarea>
+              </div>
+            </div>
+            <div class="mb-3 row">
+              <label for="importAcountuserSignCrtContent" class="col-sm-2 col-form-label"> 账户签名证书（cert模式需要）</label>
+              <div class="col-sm-10">
+                <textarea type="text" class="form-control" id="importAcountuserSignCrtContent" value=""></textarea>
+              </div>
+            </div>
+
+            <div class="mb-3 row">
+              <button type="button" class="btn btn-primary" onclick="importAccountConfig()">导入链账户</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card text-center">
+          <div class="card-header">
+            导入链配置
+          </div>
+          <div class="card-body">
+            <div class="mb-3 row">
+              <label for="importChainConfigParams" class="col-sm-2 col-form-label">Params</label>
+              <div class="col-sm-10">
+                <textarea type="text" class="form-control" name="importChainConfigParams" id="importChainConfigParams"
+                  style="height:200px">
+                  {
+                    "chainId":"chain1",
+                    "chainName":"dev-chain1",
+                    "nodeIp":"127.0.0.1:12301",
+                    "tlsEnable":true,
+                    "accountMode":"permissionedWithCert",
+                    "protocol":"GRPC",
+                    "hostName":"",
+                    "browserLink":""
+                  }
+              </textarea>
+              </div>
+            </div>
+
+            <div class="mb-3 row">
+              <button type="button" class="btn btn-primary" onclick="importChainConfig()">导入链配置</button>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="card text-center">
+          <div class="card-header">
+            导入订阅合约
+          </div>
+          <div class="card-body">
+            <div class="mb-3 row">
+              <label for="importSubscribeContractParams" class="col-sm-2 col-form-label">Params</label>
+              <div class="col-sm-10">
+                <textarea type="text" class="form-control" name="importSubscribeContractParams"
+                  id="importSubscribeContractParams" style="height:200px">
+                  {
+                    "chainId":"chainmaker_testnet_pk",
+                    "contractName":"svenErc20",
+                    "contractType":"CMDFA"
+                  }
+              </textarea>
+              </div>
+            </div>
+
+            <div class="mb-3 row">
+              <button type="button" class="btn btn-primary" onclick="importSubscribeContract()">导入链配置</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="tab-pane fade" id="pills-did" role="tabpanel" aria-labelledby="pills-did-tab" tabindex="0">
+
+        <div class="card text-center">
+          <div class="card-header">
+            did授权
+          </div>
+          <div class="card-body">
+            <div class="mb-3 row">
+              <label for="didAuthVp" class="col-sm-2 col-form-label" >授权vp</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="didAuthVp" value="123">
+              </div>
+            </div>
+            <div class="mb-3 row">
+              <label for="didId" class="col-sm-2 col-form-label">授权did</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="didId" value="">
+              </div>
+            </div>
+            <div class="mb-3 row">
+              <label for="didVcTemplateId" class="col-sm-2 col-form-label">VC模板id</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="didVcTemplateId" value="10000">
+              </div>
+            </div>
+            <div class="mb-3">
+              <button type="button" class="btn btn-primary" onclick="didAuthLogin()">did授权登录 </button>
+              <button type="button" class="btn btn-primary" onclick="didAuthVc()">did授权vc </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="pills-sdk" role="tabpanel" aria-labelledby="pills-sdk-tab" tabindex="0">
+
+        <div class="card text-center">
+          <div class="card-header">
+           SDK调用
+          </div>
+          <div class="card-body">
+            <div class="mb-3 row">
+              <label for="sdkModule" class="col-sm-2 col-form-label" >模块名称</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="sdkModule" value="">
+              </div>
+            </div>
+            <div class="mb-3 row">
+              <label for="sdkMethod" class="col-sm-2 col-form-label">方法名</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="sdkMethod" value="">
+              </div>
+            </div>
+            <div class="mb-3 row">
+              <label for="sdkParamList" class="col-sm-2 col-form-label">参数列表</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="sdkParamList" value="">
+              </div>
+            </div>
+            <div class="mb-3">
+              <button type="button" class="btn btn-primary" onclick="callSDK()">确认调用 </button>
+            </div>
+
+            
+          </div>
+        </div>
+
+        <div class="card text-center">
+          <div class="card-header">
+            <button type="button" class="btn btn-primary" onclick="queryContractBalanceOf()">查询合约账号token余额 </button>
+            <button type="button" class="btn btn-primary" onclick="getChainConfig()">获取链配置 </button>
+            <button type="button" class="btn btn-primary" onclick="getTxByTxId()">查询交易信息 </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+
+
+    const chainId = document.getElementById("chainId");
+    const accountAddress = document.getElementById("accountAddress");
+    const accountSignContent = document.getElementById("accountSignContent");
+    function getAccountSign() {
+      window.chainMaker.sendRequest('openAccountSignature', {
+        chainId: chainId.value,
+        accountAddress: accountAddress.value,
+        body: {
+          hexContent: toHex(accountSignContent.value),
+          resCode: "hex",
+          alg: "sm2"
+        }
+      }, res => {
+        console.log(res)
+        document.getElementById("accountSignResult").innerHTML = JSON.stringify(res.info.signContent || res.info.detail);
+      })
+
+    }
+    function connectAccount(){
+      window.chainMaker.sendRequest('openConnect', {
+        chainId: chainId.value
+      }, res => {
+        console.log(res.info);
+      })
+    }
+    function openAccountExport(){
+      window.chainMaker.sendRequest('openAccountExport', {
+          chainId: chainId.value,
+          body: JSON.parse(document.getElementById('openAccountExport').value)
+        }, res => {
+          console.log(res.info);
+        })
+    }
+    function openAccountImportByMnemonic(){
+      window.chainMaker.sendRequest('openAccountImportByMnemonic', {
+          chainId: chainId.value,
+          body: JSON.parse(document.getElementById('openAccountImportByMnemonic').value)
+        }, res => {
+          console.log(res.info);
+        })
+    }
+
+    // 创建合约
+    async function createUserContract() {
+      let contractFile = document.getElementsByName('contractFile')[0].files[0];
+      const contractName = document.getElementById('contractName').value;
+      const params = document.getElementById('contractParams').value;
+      if (!contractFile || !contractName) {
+        return;
+      }
+      const body = {
+        contractName,
+        contractVersion: '1.0',
+        contractFile: await file2BinaryString(contractFile),
+        runtimeType: 'DOCKER_GO',//'WASMER', //DOCKER_GO
+        params: params ? JSON.parse(params) : {},
+        // limit:{ gasLimit: 1000 }
+      };
+      window.chainMaker.createUserContract({
+        body,
+        accountAddress: accountAddress.value,
+        chainId: chainId.value,
+        contractName,
+        ticket: Date.now().toString()
+      })
+    }
+    function invokeUserContract(type) {
+      const contractName = document.getElementById('contractName').value
+      const params = JSON.parse(document.getElementById('contractParams').value)
+      const contractMethod = document.getElementById('contractMethod').value;
+
+     // const evidence = { id: 'acc' + new Date().getTime(), hash: 'sven' + new Date().getTime(), metadata: JSON.stringify({ "hashType": "file", "hashAlgorithm": "sha256", "usename": "asd", "timestamp": Date.now() / 1000 | 0, "proveTimestamp": "", "content": "阿萨德12svena2asd1233" }) }
+
+      if (!contractName) {
+        return;
+      }
+      window.chainMaker.invokeUserContract({
+        accountAddress: accountAddress.value,
+        chainId: chainId.value,
+        body: {
+          contractName,
+          params: {
+          //  ...evidence,
+            ...params,
+            time: Date.now() / 1000 | 0,
+          },
+          method: contractMethod || 'Evidence'
+        },
+        ticket: Date.now().toString()
+      })
+    }
+
+
+    //nft
+    function createOrSetCategory() {
+      const nftContractName = document.getElementById('nftContractName').value;
+     const nftCategoryName = document.getElementById('nftCategoryName').value;
+      const nftCategoryURI = document.getElementById('nftCategoryURI').value;
+
+      if (!contractName) {
+        return;
+      }
+
+      window.chainMaker.invokeUserContract({
+        body: {
+          contractName: nftContractName,
+          params: {
+            category: JSON.stringify({
+              categoryName: nftCategoryName,
+              categoryURI: nftCategoryURI
+            }),
+            tokenId: Date.now() / 1000,
+            time: Date.now() / 1000 | 0,
+          },
+          method: 'CreateOrSetCategory'
+        },
+        ticket: Date.now().toString()
+      })
+    }
+
+    function nftMint() {
+      const nftContractName = document.getElementById('nftContractName').value;
+      const nftTo = document.getElementById('nftTo').value;
+      // const tokenId = document.getElementById('tokenId').value;
+      const metadata = document.getElementById('metadata').value;
+      const nftCategoryName = document.getElementById('nftCategoryName').value;
+      if (!contractName) {
+        return;
+      }
+
+      window.chainMaker.invokeUserContract({
+        body: {
+          contractName: nftContractName,
+          params: {
+            to: nftTo,
+            metadata,
+            categoryName: nftCategoryName,
+            tokenId: Date.now() / 1000,
+            time: Date.now() / 1000 | 0,
+          },
+          method: 'Mint'
+        },
+        ticket: Date.now().toString()
+      })
+    }
+
+
+    // ft转账
+    function transfer() {
+      const erc20ContractName = document.getElementById('erc20ContractName').value;
+      const erc20To = document.getElementById('erc20To').value;
+      const erc20ToSum = document.getElementById('erc20ToSum').value;
+      window.chainMaker.invokeUserContract({
+        body: {
+          contractName: erc20ContractName,
+          params: {
+            amount: erc20ToSum,
+            to: erc20To,
+            time: Date.now() / 1000 | 0,
+          },
+          method: 'Transfer'
+        },
+        ticket: Date.now().toString()
+      })
+    }
+
+
+    function importChainConfig() {
+      let params = null;
+      try {
+        params = JSON.parse(document.getElementById('importChainConfigParams').value)
+        window.chainMaker.sendRequest('importChainConfig', {
+          body: params
+        }, res => {
+          console.log('importChainConfig complete', res);
+        })
+      } catch (error) {
+        console.error(error);
+      }
+
+    }
+    function importAccountConfig() {
+      window.chainMaker.sendRequest('importAccountConfig', {
+        chainId: document.getElementById("importAcountChainId").value,
+        body: {
+          userSignKeyName: "clent.sig.key",
+          userSignCrtName: "clent.cert.crt",
+          userPublicKeyName: "clent.pub.pem",
+          userSignKeyContent: document.getElementById("importAcountuserSignKeyContent").value,
+          userSignCrtContent: document.getElementById("importAcountuserSignCrtContent").value || '',
+          userPublicKeyContent: document.getElementById("importAcountuserPublicKeyContent").value || '',
+          name: document.getElementById("importAcountUserName").value,
+          orgId: document.getElementById("importAcountOrgId").value,
+        }
+      }, res => {
+        console.log('importAccountConfig complete', res);
+      })
+    }
+
+    function importSubscribeContract() {
+      let params = null;
+      try {
+        params = JSON.parse(document.getElementById('importSubscribeContractParams').value)
+        window.chainMaker.sendRequest('importSubscribeContract', {
+          body: params
+        }, res => {
+          console.log('importContractConfig complete', res);
+        })
+      } catch (error) {
+        console.error(error);
+      }
+    }
+
+
+    function didAuthLogin(){
+      const didAuthVp = document.getElementById('didAuthVp').value;
+      const did = document.getElementById('didId').value;
+      // const apiHost = "http://192.168.1.181:30175/opennetSso"
+      // //https://192.168.1.181:14253
+      // fetch(apiHost+"/api/v1/did/generate/random", {
+      //   method:"POST"
+      // }).then(res=>res.json()).then((data)=>{
+      //   console.log(data)
+      // }).catch(e=>{})
+      
+      window.chainMaker.sendRequest('openDidAuthority',{
+        body: {
+          chainId:  chainId.value,
+          vp:didAuthVp,
+        },
+        ticket: Date.now().toString()
+      })
+    }
+
+    function didAuthVc(){
+      const didAuthVp = document.getElementById('didAuthVp').value;
+      const did = document.getElementById('didId').value;
+      const templateId = document.getElementById('didVcTemplateId').value;
+      window.chainMaker.sendRequest('openVcAuthority',{
+        body: {
+          chainId:  chainId.value,
+          vp:didAuthVp,
+          did,
+          templateId
+        },
+        ticket: Date.now().toString()
+      }) 
+      
+    }
+
+    //sdk
+    function callSDK(){
+      const sdkModule = document.getElementById('sdkModule').value;
+      const sdkMethod = document.getElementById('sdkMethod').value;
+      const sdkParamList = document.getElementById('sdkParamList').value;
+    
+      try {
+        window.chainMaker.sendRequest('callSDK',{
+          body: {
+            module:sdkModule || "callSystemContract",
+            method:sdkMethod || "gasAccountGas",
+            paramList:JSON.parse(sdkParamList||'["e97e032d9fbc9f282cdb779fb365afea70bcb1d4"]')
+          },
+          chainId:  chainId.value,
+          accountAddress: accountAddress.value,
+          ticket: Date.now().toString()
+        },(res)=>{
+          console.log(res)
+        }) 
+      } catch (error) {
+        console.log(error)
+      }
+    }
+   
+    function getChainConfig(){
+      const webSDK = window.chainMaker.getWebSDK('chainmaker_pk',"e97e032d9fbc9f282cdb779fb365afea70bcb1d4")
+      webSDK.chainConfig.getChainConfig().then(res=>{
+        console.log(res)
+      }).catch(e=>console.error(e))
+    }
+   
+    function getTxByTxId(){
+      const webSDK = window.chainMaker.getWebSDK()
+      webSDK.callSystemContract.getTxByTxId("6869112261cc4046940c347ed6475aa6a296301fbe5247f09fadb5b8a9eddba0").then(res=>{
+        console.log(res)
+      }).catch(e=>console.error(e))
+      
+    }
+
+    function queryContractBalanceOf(){
+      const webSDK = window.chainMaker.getWebSDK()
+      webSDK.callUserContract.queryContract({ 
+        contractName: "dfa1",
+        method: "BalanceOf",
+        params: { account:"2c28a939ac225dd0dd29fddac395dd74797c5205" } 
+      }).then(res=>{
+        console.log(res)
+      }).catch(e=>console.error(e))
+    }
+
+
+    // 工具方法
+    function file2BinaryString(file) {
+      return new Promise(function (resolve) {
+        const reader = new FileReader();
+        const readFile = function () {
+          resolve(reader.result);
+        };
+        reader.addEventListener('load', readFile);
+        reader.readAsBinaryString(file);
+      });
+    }
+
+    function toHex(str) {
+      let result = '';
+      for (let i = 0; i < str.length; i++) {
+        result += str.charCodeAt(i).toString(16);
+      }
+      return result;
+    }
+  </script>
+</body>
+
+</html>

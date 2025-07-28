@@ -1,0 +1,55 @@
+.wallet-account-detail .key-container {
+  margin-top: 20px;
+}
+.wallet-account-detail .key-container .key-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.wallet-account-detail .key-container .key-header .key-name {
+  height: 20px;
+  font-size: 16px;
+  font-family: PingFangSC-Regular, PingFangSC-Regular;
+  font-weight: 400;
+  color: #333333;
+  line-height: 20px;
+}
+.wallet-account-detail .key-container .key-header .key-download {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+.wallet-account-detail .key-container .key-header .key-download .download-icon {
+  width: 14px;
+  height: 14px;
+}
+.wallet-account-detail .key-container .key-header .key-download .download-icon img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.wallet-account-detail .key-container .key-header .key-download .download-text {
+  height: 14px;
+  font-size: 12px;
+  font-family: PingFangSC-Regular, PingFangSC-Regular;
+  font-weight: 400;
+  color: #2C81E5;
+  line-height: 16px;
+  margin-left: 2px;
+}
+.wallet-account-detail .key-container .key-content {
+  margin-top: 6px;
+  min-height: 125px;
+  background: #EEEEEE;
+  border-radius: 4px;
+  padding: 12px 16px;
+  height: 16px;
+  font-size: 12px;
+  font-family: PingFangSC-Regular, PingFangSC-Regular;
+  font-weight: 400;
+  color: #000000;
+  line-height: 16px;
+  word-break: break-word;
+}

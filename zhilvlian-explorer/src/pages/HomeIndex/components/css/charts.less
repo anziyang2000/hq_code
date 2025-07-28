@@ -1,0 +1,70 @@
+// 原型设计稿的宽度 1920 高度 2228
+@designWidth: 1920;
+@designHeight: 2228;
+// 移动端原型设计稿的宽度 750 高度 3385
+@designWidthMobile: 750;
+@designHeightMobile: 3385;
+
+.chart_title {
+    font-weight: 700;
+    font-size: 16px;
+    color: #000000;
+}
+
+.ant-col.chart_center canvas {
+    // background-color: #000000 !important;
+    height: 442px !important;
+    // color: red !important;
+}
+
+.ant-col.chart_center .g2-tooltip {
+    width: 160px !important;
+    min-height: 50px !important;
+    padding: 0px !important;
+    margin: 0px !important;
+}
+
+.ant-col.chart_center .ant-pro-card-header {
+    padding: 24px 24px 0 24px !important;
+}
+.ant-col.chart_center .ant-pro-card-body {
+    padding: 24px !important;
+    .ant-pro-statistic-card-content {
+        // background-color: skyblue;
+        .ant-pro-statistic-card-chart {
+            margin: 0px !important;
+            // background-color: red;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .chart_title {
+        font-weight: 700;
+        font-size: calc(30 / @designWidthMobile * 100vw) !important;
+        color: #000000;
+    }
+    
+    .ant-col.chart_center .ant-pro-card-header {
+        padding: calc(23 / @designWidthMobile * 100vw) calc(30 / @designWidthMobile * 100vw) 0 calc(23 / @designWidthMobile * 100vw) !important;
+    }
+    .ant-col.chart_center canvas {
+        height: calc(440 / @designWidthMobile * 100vw) !important;
+    }
+    .ant-col.chart_center .ant-pro-card-body {
+        padding: calc(24 / @designWidthMobile * 100vw) !important;
+        .ant-pro-statistic-card-content {
+            // background-color: skyblue;
+            .ant-pro-statistic-card-chart {
+                margin: 0px !important;
+                // background-color: red;
+            }
+        }
+    }
+    // 气泡框窄一些
+    .ant-col.chart_center .g2-tooltip {
+        width: calc(200 / @designWidthMobile * 100vw) !important;
+        box-shadow: 0px calc(3 / @designWidthMobile * 100vw) calc(10 / @designWidthMobile * 100vw) 0px rgba(122,141,152,0.57) !important;
+    }
+
+}

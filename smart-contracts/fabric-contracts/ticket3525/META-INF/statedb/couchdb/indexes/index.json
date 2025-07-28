@@ -1,0 +1,8 @@
+{
+    "index": {
+        "fields": ["token_id"]
+    },
+    "ddoc": "indexTokenId",
+    "name": "token_id-index",
+    "type": "json"
+}

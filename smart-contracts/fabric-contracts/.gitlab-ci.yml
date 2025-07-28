@@ -1,0 +1,65 @@
+# 全局变量，仓库名与账号信息根据实际更改
+variables:
+  IMAGE_TAG_tomcat: "reg.yilvbao.cn:9088/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME:$CI_PIPELINE_ID"
+  Mirror_warehouse: "reg.yilvbao.cn:9088"
+##这是之前创建的token
+  #MAVEN_OPTS: "-Dmaven.repo.local=.m2/repository/"
+  NS: "dev"
+  GOPATH: $CI_PROJECT_DIR/.go
+  KUBECONFIG: /etc/deploy/config
+cache:
+  key: build-cache
+  paths:
+    - .go/pkg/mod/
+before_script:
+  - mkdir -p .go
+# 本次构建的阶段job：
+stages:
+- compile
+- build
+- deploy
+
+# 打包
+package:
+  #when: manual
+  stage: compile
+  image: golang:1.17   
+  interruptible: false
+  timeout: 10m
+ # tags:
+  #- cas-core
+  #- docker-in-docker
+  script:
+  - echo $GOPATH
+  - go env -w GOPROXY=https://goproxy.io
+  - go build -o $CI_PROJECT_NAME
+  artifacts: 
+    paths: 
+      - $CI_PROJECT_NAME
+    expire_in: 1 week
+  only:
+    - dev
+
+build-image:
+  image: docker:latest 
+  stage: build
+  tags:
+  - docker-in-docker 
+  script:
+  #- sleep 180
+  - docker build  --build-arg PROJECT_NAME=$CI_PROJECT_NAME  -t ${IMAGE_TAG_tomcat} .
+  - docker login ${REGISTRY_HOST} -u ${REGISTRY_USERNAME}  -p ${REGISTRY_PASSWORD} 
+  - docker push ${IMAGE_TAG_tomcat}
+  only:
+  - dev
+
+k8s-deploy:
+  stage: deploy
+  image: everpeace/kubectl:latest    
+  only:
+    - dev
+  script:
+    - export TAG=$TAG
+    - mkdir -p /etc/deploy/
+    - echo $kubeconfig_test_dev | base64 -d > $KUBECONFIG
+    - kubectl -n $NS --kubeconfig $KUBECONFIG set image deployment/$CI_PROJECT_NAME  $CI_PROJECT_NAME=reg.yilvbao.cn:9088/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME:$CI_PIPELINE_ID

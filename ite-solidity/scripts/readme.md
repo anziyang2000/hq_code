@@ -1,0 +1,6 @@
+# 关于部署升级合约的问题：
+
+1、deploy与upgrade是手动部署合约升级，需要新旧合约逻辑代码、代理合约proxy、升级合约proxyAdmin（因为本次使用的是透明代理transparent的升级方式，如果使用的是uups升级方式就不需要proxyAdmin了）
+注：透明代理和uups的区别是升级函数在哪个合约的区别
+
+2、deploy2与upgrade2是使用的hardhat的合约升级插件部署合约进行的升级，只需要新旧逻辑合约代码即可，比较方便

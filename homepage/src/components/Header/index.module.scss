@@ -1,0 +1,57 @@
+.header {
+  align-items: center;
+  background-color: var(--primary-bg-color);
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 10%);
+  color: var(--primary-text-color);
+  display: flex;
+  height: var(--nav-content-height);
+  justify-content: center;
+  left: 0;
+  min-width: fit-content;
+  position: sticky;
+  right: 0;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+
+  > div {
+    margin: 0 var(--min-content-margin);
+    min-width: var(--min-content-width);
+  }
+
+  .title {
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+    margin-left: 12px;
+    text-align: left;
+  }
+
+  .menu {
+    .wrap {
+      width: 148px;
+    }
+
+    .item {
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 600;
+      padding: 8px 16px;
+
+      &.selected {
+        color: rgb(68 119 255 / 100%);
+      }
+
+      &:hover {
+        color: rgb(68 119 255 / 85%);
+        transition: 0.3s;
+      }
+    }
+  }
+
+  .theme {
+    position: absolute;
+    right: 30px;
+  }
+}

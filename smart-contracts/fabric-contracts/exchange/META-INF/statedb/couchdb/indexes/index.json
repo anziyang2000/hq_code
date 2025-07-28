@@ -1,0 +1,8 @@
+{
+    "index": {
+        "fields": ["project_id"]
+    },
+    "ddoc": "indexProjectId",
+    "name": "project_id-index",
+    "type": "json"
+}

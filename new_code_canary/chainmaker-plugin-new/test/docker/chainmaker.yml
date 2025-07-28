@@ -1,0 +1,92 @@
+# 192.168.1.108:16303
+log:
+  config_file: ../config/alanhe/log.yml
+blockchain:
+- chainId: chain108docker
+  genesis: ../config/alanhe/chainconfig/bc1.yml
+node:
+  type: full
+  org_id: alanhe
+  priv_key_file: ../config/alanhe/certs/node/alanhedocker/alanhedocker.sign.key
+  cert_file: ../config/alanhe/certs/node/alanhedocker/alanhedocker.sign.crt
+  signer_cache_size: 1000
+  cert_cache_size: 1000
+  pkcs11:
+    enabled: false
+    library: ""
+    label: ""
+    password: ""
+    session_cache_size: 10
+    hash: SHA256
+net:
+  provider: LibP2P
+  listen_addr: /ip4/0.0.0.0/tcp/11301
+  seeds:
+  - /ip4/0.0.0.0/tcp/11301/p2p/QmWKX49diP1qFJkPtPUgcVXASq8i1zLqF4Zi8xaTJWHkoi
+  tls:
+    enabled: true
+    priv_key_file: ../config/alanhe/certs/node/alanhedocker/alanhedocker.tls.key
+    cert_file: ../config/alanhe/certs/node/alanhedocker/alanhedocker.tls.crt
+txpool:
+  max_txpool_size: 50000
+  max_config_txpool_size: 10
+  full_notify_again_time: 30
+  batch_max_size: 30000
+  batch_create_timeout: 200
+rpc:
+  provider: grpc
+  port: 16303
+  check_chain_conf_trust_roots_change_interval: 60
+  ratelimit:
+    token_per_second: -1
+    token_bucket_size: -1
+  subscriber:
+    ratelimit:
+      token_per_second: 100
+      token_bucket_size: 100
+  tls:
+    mode: twoway
+    priv_key_file: ../config/alanhe/certs/node/alanhedocker/alanhedocker.tls.key
+    cert_file: ../config/alanhe/certs/node/alanhedocker/alanhedocker.tls.crt
+monitor: null
+pprof: null
+storage:
+  store_path: ../data/alanhe-alanhedocker/ledgerData1
+  unarchive_block_height: 300000
+  blockdb_config:
+    provider: leveldb
+    leveldb_config:
+      store_path: ../data/alanhe-alanhedocker/block
+  statedb_config:
+    provider: leveldb
+    leveldb_config:
+      store_path: ../data/alanhe-alanhedocker/state
+  historydb_config:
+    provider: leveldb
+    leveldb_config:
+      store_path: ../data/alanhe-alanhedocker/history
+  resultdb_config:
+    provider: leveldb
+    leveldb_config:
+      store_path: ../data/alanhe-alanhedocker/result
+  disable_contract_eventdb: true
+  contract_eventdb_config:
+    provider: sql
+    sqldb_config:
+      sqldb_type: mysql
+      dsn: root:password@tcp(127.0.0.1:3306)/
+core:
+  evidence: false
+scheduler:
+  rwset_log: false
+vm:
+  enable_dockervm: true
+  dockervm_container_name: chainmaker-vm-docker-go-containeralanhe-alanhedocker
+  dockervm_mount_path: ../data/alanhe-alanhedocker/docker-go
+  dockervm_log_path: ../log/alanhe-alanhedocker/docker-go
+  log_in_console: false
+  log_level: INFO
+  uds_open: true
+  tx_size: 1000
+  user_num: 100
+  time_limit: 2

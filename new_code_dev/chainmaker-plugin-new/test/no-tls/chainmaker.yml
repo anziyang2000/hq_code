@@ -1,0 +1,81 @@
+# 192.168.1.108:16301
+log:
+  config_file: ../config/cn.alanhe.me/log.yml
+blockchain:
+- chainId: alanheTestChain1082
+  genesis: ../config/cn.alanhe.me/chainconfig/bc1.yml
+node:
+  type: full
+  org_id: cn.alanhe.me
+  priv_key_file: ../config/cn.alanhe.me/certs/node/alanheTest108/alanheTest108.sign.key
+  cert_file: ../config/cn.alanhe.me/certs/node/alanheTest108/alanheTest108.sign.crt
+  signer_cache_size: 1000
+  cert_cache_size: 1000
+  pkcs11:
+    enabled: false
+    library: ""
+    label: ""
+    password: ""
+    session_cache_size: 10
+    hash: SHA256
+net:
+  provider: LibP2P
+  listen_addr: /ip4/0.0.0.0/tcp/11301
+  seeds:
+  - /ip4/0.0.0.0/tcp/11301/p2p/QmQfPQWU6pgJVWdB8q1q9Kx3A4JbmcFU3XVhBvgDZcUDSM
+  tls:
+    enabled: true
+    priv_key_file: ../config/cn.alanhe.me/certs/node/alanheTest108/alanheTest108.tls.key
+    cert_file: ../config/cn.alanhe.me/certs/node/alanheTest108/alanheTest108.tls.crt
+txpool:
+  max_txpool_size: 50000
+  max_config_txpool_size: 10
+  full_notify_again_time: 30
+  batch_max_size: 30000
+  batch_create_timeout: 200
+rpc:
+  provider: grpc
+  port: 16301
+  check_chain_conf_trust_roots_change_interval: 60
+  ratelimit:
+    token_per_second: -1
+    token_bucket_size: -1
+  subscriber:
+    ratelimit:
+      token_per_second: 100
+      token_bucket_size: 100
+  tls:
+    mode: twoway
+    priv_key_file: ../config/cn.alanhe.me/certs/node/alanheTest108/alanheTest108.tls.key
+    cert_file: ../config/cn.alanhe.me/certs/node/alanheTest108/alanheTest108.tls.crt
+monitor: null
+pprof: null
+storage:
+  store_path: ../data/cn.alanhe.me-alanheTest108/ledgerData1
+  unarchive_block_height: 300000
+  blockdb_config:
+    provider: leveldb
+    leveldb_config:
+      store_path: ../data/cn.alanhe.me-alanheTest108/block
+  statedb_config:
+    provider: leveldb
+    leveldb_config:
+      store_path: ../data/cn.alanhe.me-alanheTest108/state
+  historydb_config:
+    provider: leveldb
+    leveldb_config:
+      store_path: ../data/cn.alanhe.me-alanheTest108/history
+  resultdb_config:
+    provider: leveldb
+    leveldb_config:
+      store_path: ../data/cn.alanhe.me-alanheTest108/result
+  disable_contract_eventdb: true
+  contract_eventdb_config:
+    provider: sql
+    sqldb_config:
+      sqldb_type: mysql
+      dsn: root:password@tcp(127.0.0.1:3306)/
+core:
+  evidence: false
+scheduler:
+  rwset_log: false

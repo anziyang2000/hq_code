@@ -1,0 +1,42 @@
+// 原型设计稿的宽度 1920 高度 2228
+@designWidth: 1920;
+@designHeight: 2228;
+
+.home_card {
+  :global {
+    .ant-tabs {
+      color: #fff;
+    }
+    .ant-pro-card {
+      background-color: transparent;
+    }
+    .ant-pro-card .ant-pro-card-body {
+      padding: 0;
+    }
+    .ant-tabs-tab {
+      padding: 12px 0 5px 0;
+      color: #999999;
+      font-weight: 400;
+      font-size: 20px;
+    }
+    .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+      color: #fff;
+      font-weight: 600;
+      font-size: 20px;
+    }
+    .ant-tabs-tab-btn:hover {
+      color: #fff;
+      font-weight: 600;
+      font-size: 20px;
+    }
+    .ant-tabs-ink-bar {
+      height: 3px !important;
+      background: linear-gradient(
+        90deg,
+        rgba(6, 76, 255, 0) 0%,
+        #064cff 51%,
+        rgba(6, 76, 255, 0) 100%
+      );
+    }
+  }
+}

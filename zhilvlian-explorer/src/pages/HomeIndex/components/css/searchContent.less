@@ -1,0 +1,318 @@
+// 原型设计稿的宽度 1920 高度 2228
+@designWidth: 1920;
+@designHeight: 2228;
+// 移动端原型设计稿的宽度 750 高度 3385
+@designWidthMobile: 750;
+@designHeightMobile: 3385;
+
+.searchContentBox {
+  color: #fff;
+  margin-left: calc(360 / @designWidth * 100vw) !important;
+  // background-color: green;
+  width: 100%;
+  height: 600px;
+
+  &_left {
+    img {
+      max-width: 400px;
+      max-height: 99px;
+      margin-left: 20px;
+      margin-top: 25px;
+    }
+    &_detail {
+      display: flex;
+
+      > div {
+        width: 100%;
+        max-width: 180px;
+        div {
+          display: flex;
+          color: #ffffff;
+          font-weight: 600;
+          font-size: 30px;
+          letter-spacing: 1px;
+        }
+        span {
+          color: #777C85;
+          font-weight: 500;
+          font-size: 16px;
+        }
+      }
+    }
+  }
+  &_right {
+    img {
+      width: 100%;
+      max-width: 1000px;
+      height: 100%;
+      min-height: 780px;
+    }
+  }
+}
+
+.homeIndex {
+  height: 100%;
+}
+// 首页的顶部背景图
+.homeIndexPhoto {
+  background-image: url(../../../../assets/images/S1@3x.png) !important;
+  // background-color: pink;
+  background-size: cover;
+  background-position: center center;
+  height: 600px !important;
+  z-index: 10 !important;
+}
+
+.searchTop {
+  color: #222426;
+  font-weight: 500;
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+// 首页区块高度 Card 的样式
+.qukuaiIndexCard {
+  cursor: pointer;
+  padding: 20px !important;
+  position: relative;
+  width: 190px !important;
+  height: 84px;
+  display: flex;
+  align-items: center;
+  background: #FFFFFF;
+  min-width: 190px !important;
+  border-radius: 12px !important;
+}
+
+.qukuaiIndexCard .qukuaiIndexCard_num{
+  width: 55px !important;
+  position: absolute;
+  top: 10px;
+  left: 72px;
+  font-weight: 600;
+  font-size: 24px !important;
+  color: #000000;
+}
+
+.qukuaiIndexCard .qukuaiIndexCard_nums{
+  font-weight: 600;
+  font-size: 24px !important;
+  color: #000000;
+}
+.qukuaiIndexCard .qukuaiIndexCard_name{
+  position: absolute;
+  bottom: 10px;
+  left: 72px;
+  font-weight: 400;
+  width: 100px !important;
+  font-size: 14px !important;
+  color: #777C85;
+}
+
+// 首页交易总数 Card 的样式
+.jiaoyiIndexCard {
+  cursor: pointer;
+  padding: 20px !important;
+  position: relative;
+  width: 190px !important;
+  height: 84px;
+  display: flex;
+  align-items: center;
+  background: #FFFFFF;
+  margin-left: 24px !important;
+  border-radius: 12px !important;
+  min-width: 190px !important;
+}
+
+.jiaoyiIndexCard .jiaoyiIndexCard_num{
+  position: absolute;
+  top: 10px;
+  left: 72px;
+  font-weight: 600;
+  font-size: 24px !important;
+  color: #000000;
+}
+
+.jiaoyiIndexCard .jiaoyiIndexCard_nums{
+  font-weight: 600;
+  font-size: 24px !important;
+  color: #000000;
+}
+.jiaoyiIndexCard .jiaoyiIndexCard_name{
+  position: absolute;
+  bottom: 10px;
+  left: 72px;
+  width: 100%;
+  font-weight: 400;
+  font-size: 14px !important;
+  color: #777C85;
+}
+
+.chart_center {
+  background: #FFFFFF;
+  box-shadow: 0px 2px 25px 0px #E8F2F8;
+  border-radius: 12px;
+  width: 100%;
+}
+
+.qukuaiIndexCard_icon {
+  width: 36px;
+  height: 36px;
+  background-image: url(../../../../assets/images/block_height_icon.svg) !important;
+  background-size: cover;
+  background-position: center center;
+}
+
+.jiaoyiIndexCard_icon {
+  width: 36px;
+  height: 36px;
+  background-image: url(../../../../assets/images/transaction_total.svg) !important;
+  background-size: cover;
+  background-position: center center;
+}
+
+@keyframes changeright {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+
+  50% {
+    -webkit-transform: rotate(180deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+.searchContentBox_left  {
+  width: 100%;
+  height: 100%;
+  padding-top: 120px;
+}
+
+.searchContentBox_left_detail {
+  position: relative;
+  margin-top: 48px;
+}
+
+/* 在宽度在小于 575px 时应用的样式 */
+@media (max-width: 575px) {
+  .chart_center {
+    margin-right: -20px;
+  }
+}
+
+@media (max-width: 768px) {
+  // 首页的顶部背景图
+  .homeIndexPhoto {
+    width: 100% !important;
+    height: calc(320 / @designWidthMobile * 100vw) !important;
+    max-width: 100%;
+  }
+  .searchContentBox {
+    margin-left: calc(30 / @designWidthMobile * 100vw) !important;
+    margin-right: calc(30 / @designWidthMobile * 100vw) !important;
+      &_left {
+        &_detail {
+          > div {
+            max-width: 1000px;
+        }
+      }
+    }
+  }
+  .searchContentBox_left  {
+    padding-top: calc(118 / @designWidthMobile * 100vw) !important;
+  }
+  .searchTop {
+    font-size: calc(36 / @designWidthMobile * 100vw) !important;
+    margin-bottom: calc(20 / @designWidthMobile * 100vw) !important;
+    font-weight: bold;
+  }
+  .searchContentBox_left_detail {
+    position: relative;
+    margin-top: calc(84 / @designWidthMobile * 100vw) !important;
+    width: 100% !important;
+    display: flex;
+    justify-content: space-between;
+  }
+  .qukuaiIndexCard {
+    padding-top: calc(25 / @designWidthMobile * 100vw) !important;
+    padding-bottom: calc(25 / @designWidthMobile * 100vw) !important;
+    padding-left: calc(36 / @designWidthMobile * 100vw) !important;
+    width: 48.4% !important;
+    // background-color: red;
+    height: calc(132 / @designWidthMobile * 100vw) !important;
+    border-radius: calc(16 / @designWidthMobile * 100vw) !important;
+    min-width: 0px !important;
+    z-index: 10;
+    overflow: hidden;
+  }
+  .qukuaiIndexCard_icon {
+    width: calc(60 / @designWidthMobile * 100vw) !important;
+    height: calc(60 / @designWidthMobile * 100vw) !important;
+  }
+  .qukuaiIndexCard .qukuaiIndexCard_num{
+    width: calc(185 / @designWidthMobile * 100vw) !important;
+    position: absolute;
+    top: calc(10 / @designWidthMobile * 100vw) !important;
+    left: calc(120 / @designWidthMobile * 100vw) !important;
+    font-weight: 600;
+    font-size: calc(40 / @designWidthMobile * 100vw) !important;
+    overflow: hidden;
+  }
+  .qukuaiIndexCard .qukuaiIndexCard_nums{
+    font-weight: 600;
+    font-size: calc(40 / @designWidthMobile * 100vw) !important;
+  }
+  .qukuaiIndexCard .qukuaiIndexCard_name{
+    position: absolute;
+    bottom: calc(20 / @designWidthMobile * 100vw) !important;
+    left: calc(120 / @designWidthMobile * 100vw) !important;
+    font-weight: 400;
+    width: calc(200 / @designWidthMobile * 100vw) !important;
+    font-size: calc(26 / @designWidthMobile * 100vw) !important;
+    color: #777C85;
+  }
+  .jiaoyiIndexCard {
+    padding-top: calc(25 / @designWidthMobile * 100vw) !important;
+    padding-bottom: calc(25 / @designWidthMobile * 100vw) !important;
+    padding-left: calc(36 / @designWidthMobile * 100vw) !important;
+    width: 48.4% !important;
+    // background-color: red;
+    margin-left: 0px !important;
+    height: calc(132 / @designWidthMobile * 100vw) !important;
+    border-radius: calc(16 / @designWidthMobile * 100vw) !important;
+    min-width: 0px !important;
+    z-index: 10;
+    overflow: hidden;
+  }
+  .jiaoyiIndexCard_icon {
+    width: calc(60 / @designWidthMobile * 100vw) !important;
+    height: calc(60 / @designWidthMobile * 100vw) !important;
+  }
+  .jiaoyiIndexCard .jiaoyiIndexCard_num{
+    width: calc(185 / @designWidthMobile * 100vw) !important;
+    position: absolute;
+    top: calc(10 / @designWidthMobile * 100vw) !important;
+    left: calc(120 / @designWidthMobile * 100vw) !important;
+    font-weight: 600;
+    font-size: calc(40 / @designWidthMobile * 100vw) !important;
+  }
+  .jiaoyiIndexCard .jiaoyiIndexCard_nums{
+    font-weight: 600;
+    font-size: calc(40 / @designWidthMobile * 100vw) !important;
+  }
+  .jiaoyiIndexCard .jiaoyiIndexCard_name{
+    position: absolute;
+    bottom: calc(20 / @designWidthMobile * 100vw) !important;
+    left: calc(120 / @designWidthMobile * 100vw) !important;
+    font-weight: 400;
+    width: calc(200 / @designWidthMobile * 100vw) !important;
+    font-size: calc(26 / @designWidthMobile * 100vw) !important;
+    color: #777C85;
+  }
+  .chart_center {
+    height: calc(558 / @designWidthMobile * 100vw) !important;
+  }
+}

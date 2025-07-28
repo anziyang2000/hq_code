@@ -1,0 +1,245 @@
+// 原型设计稿的宽度 1920 高度 2228
+@designWidth: 1920;
+@designHeight: 2228;
+// 移动端原型设计稿的宽度 750 高度 3385
+@designWidthMobile: 750;
+@designHeightMobile: 3385;
+
+.tableBox {
+  margin-top: 10px;
+  border-radius: 12px;
+  .rowClassHover {
+    height: 64px;
+  }
+  .rowClassHover:hover {
+    color: #000;
+    background-color: #F6F6F8;
+    background-size: 100% 100% !important;
+  }
+
+  :global {
+    .ant-empty-normal {
+      color: #000;
+    }
+    .ant-table {
+      color: #000;
+      background: transparent;
+    }
+    .ant-table-thead {
+      height: 40px;
+      background-color: #F6F6F8;
+    }
+    .ant-table-thead > tr > th {
+      padding: 10px 13px;
+      color: #000;
+      font-weight: 700;
+      font-size: 12px;
+      text-align: left !important;
+      background: transparent;
+      border-bottom: 0;
+    }
+
+    .ant-table-thead > tr > th::before {
+      width: 0 !important;
+    }
+
+    .ant-table-tbody {
+      height: 64px;
+      color: #000;
+      font-weight: 400;
+      font-size: 16px;
+      background: transparent;
+      text-align: left !important;
+    }
+    
+
+    .ant-table-tbody > tr > td { 
+      // border-bottom: 1px solid rgba(251,251,251,0.08);
+      // background-color: red;
+      height: 10px !important;
+      text-align: left !important;
+      border-bottom: 1px solid #F3F3F3 !important;
+    }
+
+    /* 调整表格行的上下左右内边距 */
+    .ant-table-tbody > tr > td {
+      border-bottom: 1px solid rgba(251, 251, 251, 0.08);
+      // background-color: red; /* 示例：设置背景色 */
+      padding-top: 5px !important; /* 控制顶部的内边距，影响行高 */
+      padding-bottom: 5px !important; /* 控制底部的内边距，影响行高 */
+      padding-left: 15px !important; /* 设置左侧内边距 */
+      text-align: left !important;
+    }
+
+    // 表格为空hover
+    .ant-table-tbody {
+      > tr:hover:not(.ant-table-expanded-row) > td,
+      .ant-table-row-hover,
+      .ant-table-row-hover > td {
+        background: rgba(89, 96, 112, 0.2) !important;
+      }
+    }
+
+    .ant-table-tbody > tr.ant-table-row:hover > td,
+    .ant-table-tbody > tr > td.ant-table-cell-row-hover {
+      color: #000;
+      background: transparent !important;
+    }
+
+    // 表格分页
+    .ant-pagination-item-active {
+      background: #064cff;
+      border-color: transparent;
+      a {
+        color: #fff;
+      }
+    }
+
+    /* 滚动条样式 */
+    ::-webkit-scrollbar {
+      width: 5px;
+      height: 10px;
+    }
+
+    /* 滚动槽 */
+    ::-webkit-scrollbar-track {
+      background-color: #fff;
+      border-radius: 3px;
+      -webkit-box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.3);
+    }
+
+    /* 滚动条滑块 */
+    ::-webkit-scrollbar-thumb {
+      background: rgba(89, 96, 112, 0.5);
+      border-radius: 3px;
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0);
+      // backdrop-filter: blur(6px);
+    }
+  }
+}
+
+.tableBox {
+  position: relative;
+}
+
+.paginationBox {
+  padding: 16px;
+  background: #fff;
+  border-top: 1px solid #e8e8e8;
+}
+
+@media (max-width: 768px) {
+  .tableBox {
+    margin-top: 10px;
+    border-radius: 12px;
+    .rowClassHover {
+      height: calc(70 / @designWidthMobile * 100vw) !important;
+    }
+    .rowClassHover:hover {
+      color: #000;
+      background-color: #F6F6F8;
+      background-size: 100% 100% !important;
+    }
+  
+    :global {
+      .ant-empty-normal {
+        color: #000;
+      }
+      .ant-table {
+        color: #000;
+        background: transparent;
+      }
+      .ant-table-thead {
+        height: calc(70 / @designWidthMobile * 100vw) !important;
+        background-color: #F6F6F8;
+        // background-color: red !important;
+      }
+      .ant-table-thead > tr > th {
+        padding: 10px 13px;
+        color: #000;
+        font-weight: 700;
+        font-size: 12px;
+        text-align: left !important;
+        background: transparent;
+        border-bottom: 0;
+      }
+  
+      .ant-table-thead > tr > th::before {
+        width: 0 !important;
+      }
+  
+      .ant-table-tbody {
+        height: 64px;
+        color: #000;
+        font-weight: 400;
+        font-size: 16px;
+        background: transparent;
+        text-align: left !important;
+        // background-color: skyblue;
+        border: 1px solid #000 !important;
+      }
+  
+      .ant-table-tbody > tr > td { 
+        // background-color: red;
+        height: 10px !important;
+        text-align: left !important;
+        border-bottom: 1px solid #F3F3F3 !important;
+      }
+  
+      /* 调整表格行的上下左右内边距 */
+      .ant-table-tbody > tr > td {
+        border-bottom: 1px solid rgba(251, 251, 251, 0.08);
+        // background-color: red; /* 示例：设置背景色 */
+        padding-top: 5px !important; /* 控制顶部的内边距，影响行高 */
+        padding-bottom: 5px !important; /* 控制底部的内边距，影响行高 */
+        padding-left: 15px !important; /* 设置左侧内边距 */
+        // padding-right: calc(15 / @designWidth * 100vw) !important; /* 设置右侧内边距 */
+        text-align: left !important;
+      }
+  
+      // 表格为空hover
+      .ant-table-tbody {
+        > tr:hover:not(.ant-table-expanded-row) > td,
+        .ant-table-row-hover,
+        .ant-table-row-hover > td {
+          background: rgba(89, 96, 112, 0.2) !important;
+        }
+      }
+  
+      .ant-table-tbody > tr.ant-table-row:hover > td,
+      .ant-table-tbody > tr > td.ant-table-cell-row-hover {
+        color: #000;
+        background: transparent !important;
+      }
+  
+      // 表格分页
+      .ant-pagination-item-active {
+        background: #064cff;
+        border-color: transparent;
+        a {
+          color: #fff;
+        }
+      }
+  
+      /* 滚动条样式 */
+      ::-webkit-scrollbar {
+        width: calc(5 / @designWidthMobile * 100vw) !important;
+        height: calc(10 / @designWidthMobile * 100vw) !important;;
+      }
+  
+      /* 滚动槽 */
+      ::-webkit-scrollbar-track {
+        background-color: #fff;
+        border-radius: 3px;
+        -webkit-box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.3);
+      }
+  
+      /* 滚动条滑块 */
+      ::-webkit-scrollbar-thumb {
+        background: rgba(89, 96, 112, 0.5);
+        border-radius: 3px;
+        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0);
+      }
+    }
+  }
+}

@@ -1,0 +1,7 @@
+.home {
+  min-width: calc(var(--min-content-width) + var(--min-content-margin) * 2);
+
+  .main {
+    // padding-top: var(--nav-content-height);
+  }
+}

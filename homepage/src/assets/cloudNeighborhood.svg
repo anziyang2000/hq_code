@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="82px" height="82px" viewBox="0 0 82 82" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>数科云邻logo</title>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="95.5774694%" id="linearGradient-1">
+            <stop stop-color="#A2FFFD" offset="0%"></stop>
+            <stop stop-color="#6D83FF" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="21.4659899%" y1="49.6639708%" x2="66.7247703%" y2="50.8424337%" id="linearGradient-2">
+            <stop stop-color="#A2FFFD" offset="0%"></stop>
+            <stop stop-color="#6565FF" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="21.4659899%" y1="49.6639708%" x2="66.7247703%" y2="50.8424337%" id="linearGradient-3">
+            <stop stop-color="#A2FFFD" offset="0%"></stop>
+            <stop stop-color="#005EFF" offset="100%"></stop>
+        </linearGradient>
+        <path d="M34.506476,48.4417725 C46.9809811,48.4417725 58.7285552,51.6827112 69.0150316,57.4000921 C58.2688346,53.2273171 46.6424199,50.9473814 34.506476,50.9473814 C22.3712217,50.9473814 10.7454386,53.2270581 -0.000173684524,57.3989943 C10.2853267,51.6824547 22.0324646,48.4417725 34.506476,48.4417725 Z" id="path-4"></path>
+        <linearGradient x1="21.4659899%" y1="39.2993095%" x2="66.7247703%" y2="76.8268984%" id="linearGradient-5">
+            <stop stop-color="#A2FFFD" offset="0%"></stop>
+            <stop stop-color="#005EFF" offset="100%"></stop>
+        </linearGradient>
+        <path d="M15.3246679,46.7713666 C6.86108751,46.7713666 0,39.7912819 0,31.180911 C0,22.5705402 6.86108751,15.5904555 15.3246679,15.5904555 C16.1973855,15.5904555 17.0530646,15.6646719 17.8859395,15.8072394 L17.8787792,15.5904555 C17.8787792,6.98008469 24.7398667,0 33.203447,0 C41.6670274,0 48.5281149,6.98008469 48.5281149,15.5904555 C56.9916953,15.5904555 63.8527828,22.5705402 63.8527828,31.180911 C63.8527828,39.5955916 57.3000189,46.4532479 49.1026323,46.7606131 L48.5281149,46.7713666 L15.3246679,46.7713666 Z" id="path-6"></path>
+        <filter color-interpolation-filters="auto" id="filter-8">
+            <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 1.000000 0 0 0 0 1.000000 0 0 0 0 1.000000 0 0 0 1.000000 0"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="首页-暗色" transform="translate(-414.000000, -3602.000000)">
+            <g id="数科云邻logo" transform="translate(414.000000, 3602.000000)">
+                <rect id="矩形备份-38" x="0" y="0" width="82" height="82"></rect>
+                <g id="数科云邻-logo">
+                    <rect id="矩形" x="0" y="0" width="82" height="82"></rect>
+                    <g id="编组-4" transform="translate(6.151801, 12.300000)">
+                        <g id="形状结合备份">
+                            <use fill="url(#linearGradient-1)" xlink:href="#path-4"></use>
+                            <use fill="url(#linearGradient-2)" xlink:href="#path-4"></use>
+                            <use fill="url(#linearGradient-3)" xlink:href="#path-4"></use>
+                        </g>
+                        <g id="编组-3" transform="translate(2.580085, 0.000000)">
+                            <mask id="mask-7" fill="white">
+                                <use xlink:href="#path-6"></use>
+                            </mask>
+                            <use id="蒙版" fill="url(#linearGradient-5)" xlink:href="#path-6"></use>
+                            <g filter="url(#filter-8)">
+                                <g mask="url(#mask-7)">
+                                    <g transform="translate(10.780340, 16.704059)" fill="#D8D8D8">
+                                        <path d="M37.3236181,14.1984506 L43.1213598,19.6044394 L43.1213598,32.572916 L26.5362214,32.572916 L28.1744382,16.456416 L37.3236181,14.1984506 Z M36.4873044,15.8688565 L28.537484,16.9749168 L27.3654783,30.9025101 L36.4873044,30.9025101 L36.4873044,15.8688565 Z" id="形状结合备份-11"></path>
+                                        <path d="M10.538787,14.1984506 L18.2436522,17.2876562 L18.2436522,32.572916 L0,32.572916 L0,18.1095239 L10.538787,14.1984506 Z M10.78034,15.8688565 L0.829256919,19.3607997 L0.829256919,31.737713 L10.78034,30.1866454 L10.78034,15.8688565 Z" id="形状结合备份-12"></path>
+                                        <path d="M22.511772,0 L31.5117629,8.38717963 L31.5117629,30.2850462 L10.7803123,30.817 L10.7803123,29.232 L22.3899368,29.2321041 L22.3899368,2.50560892 L8.29256919,9.21188359 L8.29231227,15.12 L7.46331227,15.427 L7.46331227,8.38717963 L22.511772,0 Z" id="形状结合备份-13"></path>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

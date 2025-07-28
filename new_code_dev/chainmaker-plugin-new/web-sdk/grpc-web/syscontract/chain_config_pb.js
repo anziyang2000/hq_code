@@ -1,0 +1,62 @@
+// source: syscontract/chain_config.proto
+/**
+ * @fileoverview
+ * @enhanceable
+ * @suppress {missingRequire} reports error on implicit type usages.
+ * @suppress {messageConventions} JS Compiler reports an error if a variable or
+ *     field starts with 'MSG_' and isn't a translatable message.
+ * @public
+ */
+// GENERATED CODE -- DO NOT EDIT!
+/* eslint-disable */
+// @ts-nocheck
+
+var jspb = require('google-protobuf');
+var goog = jspb;
+var global = (function() { return this || window || global || self || Function('return this')(); }).call(null);
+
+goog.exportSymbol('proto.syscontract.ChainConfigFunction', null, global);
+/**
+ * @enum {number}
+ */
+proto.syscontract.ChainConfigFunction = {
+  GET_CHAIN_CONFIG: 0,
+  GET_CHAIN_CONFIG_AT: 1,
+  CORE_UPDATE: 2,
+  BLOCK_UPDATE: 3,
+  TRUST_ROOT_ADD: 4,
+  TRUST_ROOT_UPDATE: 5,
+  TRUST_ROOT_DELETE: 6,
+  NODE_ADDR_ADD: 7,
+  NODE_ADDR_UPDATE: 8,
+  NODE_ADDR_DELETE: 9,
+  NODE_ORG_ADD: 10,
+  NODE_ORG_UPDATE: 11,
+  NODE_ORG_DELETE: 12,
+  CONSENSUS_EXT_ADD: 13,
+  CONSENSUS_EXT_UPDATE: 14,
+  CONSENSUS_EXT_DELETE: 15,
+  PERMISSION_ADD: 16,
+  PERMISSION_UPDATE: 17,
+  PERMISSION_DELETE: 18,
+  NODE_ID_ADD: 19,
+  NODE_ID_UPDATE: 20,
+  NODE_ID_DELETE: 21,
+  TRUST_MEMBER_ADD: 22,
+  TRUST_MEMBER_UPDATE: 23,
+  TRUST_MEMBER_DELETE: 24,
+  ALTER_ADDR_TYPE: 25,
+  ENABLE_OR_DISABLE_GAS: 26,
+  SET_INVOKE_BASE_GAS: 27,
+  SET_ACCOUNT_MANAGER_ADMIN: 28,
+  PERMISSION_LIST: 29,
+  UPDATE_VERSION: 30,
+  MULTI_SIGN_ENABLE_MANUAL_RUN: 31,
+  ENABLE_ONLY_CREATOR_UPGRADE: 32,
+  DISABLE_ONLY_CREATOR_UPGRADE: 33,
+  SET_INVOKE_GAS_PRICE: 34,
+  SET_INSTALL_BASE_GAS: 35,
+  SET_INSTALL_GAS_PRICE: 36
+};
+
+goog.object.extend(exports, proto.syscontract);

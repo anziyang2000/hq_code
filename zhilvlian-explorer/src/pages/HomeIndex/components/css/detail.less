@@ -1,0 +1,259 @@
+// 原型设计稿的宽度 1920 高度 2228
+@designWidth: 1920;
+@designHeight: 2228;
+// 移动端原型设计稿的宽度 750 高度 3385
+@designWidthMobile: 750;
+@designHeightMobile: 3385;
+
+// 节点详情页面
+.list_top {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 24px;
+    margin-bottom: 24px;
+    padding: 24px 0px 24px 24px;
+    width: 100%;
+    height: 106px;
+    background: #FFFFFF;
+    box-shadow: 0px 2px 25px 0px #E8F2F8;
+    border-radius: 12px;
+}
+.list_top p{
+    margin-bottom: 4px;
+    font-family: PingFangSC, PingFang SC;
+    // font-weight: 600;
+    font-size: 20px;
+    color: #000000;
+    line-height: 32px;
+    text-align: left;
+    font-style: normal;
+}
+
+.list_top span{
+    display: inline-block;
+    font-family: PingFangSC, PingFang SC;
+    font-weight: 400;
+    font-size: 16px;
+    color: #777C85;
+    line-height: 22px;
+    text-align: left;
+    font-style: normal;
+    text-transform: none;
+}
+
+.list_table{
+    padding: 24px;
+    width: 100%;
+    background: #FFFFFF;
+    box-shadow: 0px 2px 25px 0px #E8F2F8;
+    border-radius: 12px !important;
+}
+
+.returnButton {
+    font-family: PingFangSC, PingFang SC;
+    font-weight: 600;
+    font-size: 20px !important;
+    cursor: pointer;
+}
+
+// .separator {
+//     margin: 0px 12px;
+//     padding-bottom: 6px;
+//     // height: calc(16 / @designWidth * 100vw);
+//     font-family: PingFangSC, PingFang SC;
+//     font-weight: 600;
+//     transform: scale(1, 2); /* 垂直方向拉伸 */
+//     font-size: 16px !important;
+// }
+
+.pagination {
+    height: 100%;
+    margin-top: 24px !important;
+    display: flex; /* 使 pagination 成为 flex 容器 */
+    align-items: stretch; /* 让子元素在垂直方向上拉伸填满 */
+}
+
+.pagination > * {
+    // background-color: red;
+    height: 100%; /* 子元素填满父容器的高度 */
+    display: flex; /* 使子元素也是 flex 容器 */
+    align-items: center; /* 垂直居中对齐子元素中的内容 */
+    justify-content: center; /* 水平居中对齐子元素中的内容 */
+}
+
+.pagination > * button, .pagination > * a {
+    height: 100%; /* 确保 button 和 a 元素也继承了高度 */
+    // background-color: red;
+    display: flex; /* 使 button 和 a 也成为 flex 容器 */
+    align-items: center; /* 垂直居中对齐 */
+    justify-content: center; /* 水平居中对齐 */
+}
+
+.ant-row.ant-row-center.pagination {
+    // background-color: #000000 !important;
+    padding: 0px !important;
+    width: 100% !important;
+    min-width: 0px !important;
+    height: 40px !important; /* 设置高度 */
+    display: flex; /* 确保使用 Flex 布局 */
+    align-items: center; /* 垂直居中对齐子元素 */
+    justify-content: center !important; /* 水平居中对齐子元素 */
+}
+
+// 移动页面才会有的
+.mobile-item {
+    // background-color: skyblue;
+    border-bottom: calc(2 / @designWidthMobile * 100vw) solid #F3F3F3;
+    padding-top: calc(39 / @designWidthMobile * 100vw) !important;
+}
+.mobile-item:nth-child(1) {
+    // background-color: skyblue;
+    padding-top: calc(0 / @designWidthMobile * 100vw) !important;
+}
+.seeMore {
+    // background-color: skyblue;
+    padding-top: calc(14 / @designWidthMobile * 100vw) !important;
+    text-align: center;
+    font-weight: 400;
+    font-size: calc(28 / @designWidthMobile * 100vw) !important;
+    color: #4477FF;
+}
+.details_key {
+    margin-right: calc(76 / @designWidthMobile * 100vw) !important;
+    font-weight: 500;
+    font-size: calc(28 / @designWidthMobile * 100vw) !important;
+    color: #000000;
+}
+.details_key_space {
+    margin-right: calc(48 / @designWidthMobile * 100vw) !important;
+    font-weight: 500;
+    font-size: calc(28 / @designWidthMobile * 100vw) !important;
+    color: #000000;
+}
+.details_value {
+    font-weight: 400;
+    font-size: calc(28 / @designWidthMobile * 100vw) !important;
+    color: #050505;
+    overflow: hidden; /* 超出部分隐藏 */
+    text-overflow: ellipsis; /* 超出部分使用省略号 */
+}
+.details_value_link {
+    font-weight: 400;
+    font-size: calc(28 / @designWidthMobile * 100vw) !important;
+    color: #4477FF;
+    cursor: pointer;
+    overflow: hidden; /* 超出部分隐藏 */
+    text-overflow: ellipsis; /* 超出部分使用省略号 */
+}
+.details {
+    // background-color: pink;
+    margin-bottom: calc(47 / @designWidthMobile * 100vw) !important;
+    display: flex; /* 使用flex布局 */
+    white-space: nowrap; /* 禁止换行 */
+}
+
+@media (max-width: 768px) {
+    // 节点详情页面
+    .list_top {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-top: calc(118 / @designWidthMobile * 100vw) !important;
+        margin-bottom: calc(24 / @designWidthMobile * 100vw) !important;
+        padding: calc(24 / @designWidthMobile * 100vw) 0px calc(26 / @designWidthMobile * 100vw) calc(24 / @designWidthMobile * 100vw);
+        width: 100%;
+        height: calc(130 / @designWidthMobile * 100vw) !important;
+        background: #FFFFFF;
+        box-shadow: 0px 2px 25px 0px #E8F2F8;
+        border-radius: calc(12 / @designWidthMobile * 100vw) !important;
+    }
+    .list_top p{
+        margin-bottom: calc(16 / @designWidthMobile * 100vw) !important;
+        font-family: PingFangSC, PingFang SC;
+        font-weight: 600;
+        font-size: calc(30 / @designWidthMobile * 100vw) !important;
+        color: #000000;
+        line-height: calc(32 / @designWidthMobile * 100vw) !important;
+        text-align: left;
+        font-style: normal;
+        display: flex;
+        align-items: center;
+    }
+    .list_top p .anticon {
+        margin: 0px 16px !important;
+        // padding-bottom: calc(6 / @designWidthMobile * 100vw) !important;
+        // height: calc(16 / @designWidth * 100vw);
+        // font-family: PingFangSC, PingFang SC;
+        // font-weight: 600;
+        // display: inline-block;
+        height: 100%;
+        transform: scale(1, 1.2); /* 垂直方向拉伸 */
+        // font-size: calc(28 / @designWidthMobile * 100vw) !important;
+        display: flex; /* 使用 Flexbox 布局 */
+        align-items: center; /* 垂直居中 */
+    }
+    .list_top span{
+        display: inline-block;
+        font-family: PingFangSC, PingFang SC;
+        font-weight: 400;
+        font-size: calc(24 / @designWidthMobile * 100vw);
+        color: #777C85;
+        line-height: calc(32 / @designWidthMobile * 100vw) !important;
+        text-align: left;
+        font-style: normal;
+        text-transform: none;
+    }
+    .returnButton {
+        font-family: PingFangSC, PingFang SC;
+        font-weight: 600;
+        font-size: calc(30 / @designWidthMobile * 100vw) !important;
+        cursor: pointer;
+    }
+    // .separator {
+    //     margin: 0px calc(12 / @designWidthMobile * 100vw) !important;
+    //     // padding-bottom: calc(6 / @designWidthMobile * 100vw) !important;
+    //     // height: calc(16 / @designWidth * 100vw);
+    //     // font-family: PingFangSC, PingFang SC;
+    //     // font-weight: 600;
+    //     // display: inline-block;
+    //     height: 100%;
+    //     transform: scale(1, 1.5); /* 垂直方向拉伸 */
+    //     font-size: calc(28 / @designWidthMobile * 100vw) !important;
+    //     display: flex; /* 使用 Flexbox 布局 */
+    //     align-items: center; /* 垂直居中 */
+    //     // .anticon {
+    //     //     display: flex; /* 使用 Flexbox 布局 */
+    //     //     align-items: center; /* 垂直居中 */
+    //     //     height: 100%; /* 确保占满父级容器的高度 */
+    //     // }
+    // }
+    .list_top p .anticon {
+        margin: 0px calc(12 / @designWidthMobile * 100vw) !important;
+        // padding-bottom: calc(6 / @designWidthMobile * 100vw) !important;
+        // height: calc(16 / @designWidth * 100vw);
+        // font-family: PingFangSC, PingFang SC;
+        // font-weight: 600;
+        // display: inline-block;
+        height: 100%;
+        transform: scale(1, 1.2); /* 垂直方向拉伸 */
+        // font-size: calc(28 / @designWidthMobile * 100vw) !important;
+        display: flex; /* 使用 Flexbox 布局 */
+        align-items: center; /* 垂直居中 */
+    }
+    .list_table{
+        padding: calc(40 / @designWidthMobile * 100vw) calc(24 / @designWidthMobile * 100vw) calc(14 / @designWidthMobile * 100vw) calc(24 / @designWidthMobile * 100vw);
+        width: 100%;
+        background: #FFFFFF;
+        box-shadow: 0px calc(2 / @designWidthMobile * 100vw) calc(25 / @designWidthMobile * 100vw) 0px #E8F2F8;
+        border-radius: calc(16 / @designWidthMobile * 100vw) !important;
+    }
+    .ant-breadcrumb.list_table {
+        padding: calc(40 / @designWidthMobile * 100vw) calc(24 / @designWidthMobile * 100vw) calc(14 / @designWidthMobile * 100vw) calc(24 / @designWidthMobile * 100vw);
+        width: 100%;
+        height: calc(130 / @designWidthMobile * 100vw) !important;
+        background: #FFFFFF;
+        box-shadow: 0px calc(2 / @designWidthMobile * 100vw) calc(25 / @designWidthMobile * 100vw) 0px #E8F2F8;
+        border-radius: calc(16 / @designWidthMobile * 100vw) !important;
+    }
+}

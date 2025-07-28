@@ -1,0 +1,163 @@
+// 原型设计稿的宽度 1920 高度 2228
+@designWidth: 1920;
+@designHeight: 2228;
+// 移动端原型设计稿的宽度 750 高度 3385
+@designWidthMobile: 750;
+@designHeightMobile: 3385;
+
+.queryFilterWrap {
+  :global {
+    .ant-form-item-label > label {
+      height: 38px !important;
+      // color: #fff;
+      font-family: PingFangSC, PingFang SC;
+      font-weight: 600;
+      font-size: 14px !important;
+      color: #000000;
+    }
+    .ant-form-item-control {
+      .ant-select-selector {
+        height: 32px !important;
+        // background-color: #262934;
+        background-color: #FFFFFF;
+        border-radius: 6px !important;
+        border: 1px solid rgba(0,0,0,0.15);
+        .ant-select-selection-overflow-item {
+          color: #fff;
+        }
+      }
+      .ant-picker {
+        height: 32px !important;
+        padding: 8px 11px 8px !important;
+        color: #fff;
+        // background-color: #262934;
+        background-color: #FFFFFF;
+        border-radius: 6px !important;
+        border: 1px solid rgba(0,0,0,0.15);
+        .ant-picker-input > input {
+          color: #919191;
+        }
+        .ant-picker-clear {
+          color: #919191;
+          background: transparent;
+        }
+        .ant-picker-suffix {
+          color: #919191;
+        }
+        .ant-picker-separator {
+          color: #919191;
+        }
+      }
+      .ant-picker:hover {
+        box-shadow: 0 0 0 1px @Input-Hover-Color;
+      }
+      .ant-picker-focused {
+        box-shadow: 0 0 0 1px @Input-Hover-Color;
+      }
+      .ant-select-focused:not(.ant-select-disabled).ant-select:not(.ant-select-customize-input)
+        .ant-select-selector {
+        box-shadow: 0 0 0 1px @Input-Hover-Color;
+      }
+      .ant-btn-primary {
+        color: #fff;
+      }
+    }
+    .ant-btn-primary {
+      background-color: @Input-Hover-Color !important;
+      border: none;
+    }
+    .ant-btn-primary:hover {
+      background-color: #3a6ff9 !important;
+      border: none;
+    }
+    .ant-btn-default {
+      border: none;
+    }
+    .ant-btn-default:hover {
+      background-color: rgba(246, 247, 249, 0.9) !important;
+      color: #000;
+      border: none;
+    }
+    .ant-btn {
+      height: 38px!important;
+    }
+    .ant-select:hover {
+      border-radius: 5px !important;
+      box-shadow: 0 0 0 1px @Input-Hover-Color;
+    }
+    .ant-select:hover .ant-select-clear {
+      color: #919191;
+      background-color: transparent;
+    }
+    .ant-select-multiple .ant-select-selection-item {
+      color: #000;
+    }
+    .ant-select-dropdown {
+      color: #fff !important;
+    }
+  }
+  .ant-select-dropdown {
+    color: #fff !important;
+  }
+}
+
+.qingkongButton{
+  padding: 0px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 88px !important;
+  height: 32px !important;
+  background: #fff;
+  border-radius: 6px;
+  margin: 0 8px;
+  font-size: 14px;
+  font-weight: 500;
+  border: none;
+  color: #000;
+  cursor: pointer;
+  border: 1px solid rgba(0,0,0,0.15);
+  white-space: nowrap;
+}
+
+.chazhaoButton {
+  padding: 0px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 88px !important;
+  height: 32px !important;
+  background: #4477FF;
+  border-radius: 6px;
+  margin: 0 8px;
+  font-size: 14px;
+  font-weight: 500;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+
+/* 在宽度在小于 1032px 时应用的样式 */
+@media (max-width: 1032px) {
+  .qingkongButton{
+    width: 50px !important;
+  }
+  .chazhaoButton {
+    width: 50px !important;
+  }
+}
+@media (max-width: 768px) {
+  .qingkongButton{
+    height: 100% !important;
+    border-radius: calc(8 / @designWidthMobile * 100vw) !important;
+    font-size: calc(30 / @designWidthMobile * 100vw) !important;
+  }
+  .chazhaoButton {
+    height: 100% !important;
+    border-radius: calc(8 / @designWidthMobile * 100vw) !important;
+    font-size: calc(30 / @designWidthMobile * 100vw) !important;
+  }
+}
+

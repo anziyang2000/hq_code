@@ -1,0 +1,417 @@
+{
+  "manifestVersion": "3.2",
+  "admin": {
+    "address": "0x208280769b98851C88c4faF6F15c2938ad22fF64",
+    "txHash": "0x8cf4e34dfe8c1fdce435b6b347cc88de4888c48b82339ded1f21548acf5f6e50"
+  },
+  "proxies": [
+    {
+      "address": "0x5605D2A8822Ae9Facc8D651e1BB1A73Aac2579D0",
+      "txHash": "0x990150ed58ce763d8994a6df841428d7f3e9e7deab24a544e3713b25a3d79f58",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x611f2Bd2907A513e87ba3dC9D18660c1a046244C",
+      "txHash": "0x0a6581bc7cf40ffa26f4933677477a021030cb04ef52e634be06dc1f87b64efb",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x92eAB1d933C11544F4b4b55b149127DDa87ceC23",
+      "txHash": "0x499832e9f4e28a0daf1668a5498fc574566d28669e1471a62a0de6f0827df623",
+      "kind": "transparent"
+    }
+  ],
+  "impls": {
+    "28a6268380fd57ec2bbfb14dddc06c82f29d435b6e0e2b998bfc6c59662c6ad1": {
+      "address": "0x96dC8456F66B31DFC269E53EC010a03B0C5269F2",
+      "txHash": "0xd5d5ee10de3c1e37b604893c941d52759099be995cd27a403b9e13d063572f58",
+      "layout": {
+        "solcVersion": "0.8.22",
+        "storage": [],
+        "types": {}
+      }
+    },
+    "5ab0f582021d7c835ec846de69293147fb3f453cf722f560ee77276c91f89a21": {
+      "address": "0xcc028F81C72b17a0ABE4336FF1DfB1979e0F9404",
+      "txHash": "0xbf2bff386d69f495997a3b8af717f26618e145fa0b14ddf8ec17b992fc9b9801",
+      "layout": {
+        "solcVersion": "0.8.22",
+        "storage": [
+          {
+            "label": "_paused",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_bool",
+            "contract": "PausableUpgradeable",
+            "src": "contracts\\openzeppelin\\contracts-upgradeable\\security\\PausableUpgradeable.sol:29"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_array(t_uint256)49_storage",
+            "contract": "PausableUpgradeable",
+            "src": "contracts\\openzeppelin\\contracts-upgradeable\\security\\PausableUpgradeable.sol:116"
+          },
+          {
+            "label": "_storedERC721Ids",
+            "offset": 0,
+            "slot": "50",
+            "type": "t_struct(Uint256Deque)11828_storage",
+            "contract": "ERC404",
+            "src": "contracts\\ERC404Plus.sol:16"
+          },
+          {
+            "label": "name",
+            "offset": 0,
+            "slot": "52",
+            "type": "t_string_storage",
+            "contract": "ERC404",
+            "src": "contracts\\ERC404Plus.sol:19"
+          },
+          {
+            "label": "symbol",
+            "offset": 0,
+            "slot": "53",
+            "type": "t_string_storage",
+            "contract": "ERC404",
+            "src": "contracts\\ERC404Plus.sol:22"
+          },
+          {
+            "label": "decimals",
+            "offset": 0,
+            "slot": "54",
+            "type": "t_uint8",
+            "contract": "ERC404",
+            "src": "contracts\\ERC404Plus.sol:26"
+          },
+          {
+            "label": "units",
+            "offset": 0,
+            "slot": "55",
+            "type": "t_uint256",
+            "contract": "ERC404",
+            "src": "contracts\\ERC404Plus.sol:30"
+          },
+          {
+            "label": "totalSupply",
+            "offset": 0,
+            "slot": "56",
+            "type": "t_uint256",
+            "contract": "ERC404",
+            "src": "contracts\\ERC404Plus.sol:33"
+          },
+          {
+            "label": "minted",
+            "offset": 0,
+            "slot": "57",
+            "type": "t_uint256",
+            "contract": "ERC404",
+            "src": "contracts\\ERC404Plus.sol:37"
+          },
+          {
+            "label": "_INITIAL_CHAIN_ID",
+            "offset": 0,
+            "slot": "58",
+            "type": "t_uint256",
+            "contract": "ERC404",
+            "src": "contracts\\ERC404Plus.sol:41"
+          },
+          {
+            "label": "_INITIAL_DOMAIN_SEPARATOR",
+            "offset": 0,
+            "slot": "59",
+            "type": "t_bytes32",
+            "contract": "ERC404",
+            "src": "contracts\\ERC404Plus.sol:45"
+          },
+          {
+            "label": "balanceOf",
+            "offset": 0,
+            "slot": "60",
+            "type": "t_mapping(t_address,t_uint256)",
+            "contract": "ERC404",
+            "src": "contracts\\ERC404Plus.sol:48"
+          },
+          {
+            "label": "allowance",
+            "offset": 0,
+            "slot": "61",
+            "type": "t_mapping(t_address,t_mapping(t_address,t_uint256))",
+            "contract": "ERC404",
+            "src": "contracts\\ERC404Plus.sol:51"
+          },
+          {
+            "label": "getApproved",
+            "offset": 0,
+            "slot": "62",
+            "type": "t_mapping(t_uint256,t_address)",
+            "contract": "ERC404",
+            "src": "contracts\\ERC404Plus.sol:54"
+          },
+          {
+            "label": "isApprovedForAll",
+            "offset": 0,
+            "slot": "63",
+            "type": "t_mapping(t_address,t_mapping(t_address,t_bool))",
+            "contract": "ERC404",
+            "src": "contracts\\ERC404Plus.sol:57"
+          },
+          {
+            "label": "_ownedData",
+            "offset": 0,
+            "slot": "64",
+            "type": "t_mapping(t_uint256,t_uint256)",
+            "contract": "ERC404",
+            "src": "contracts\\ERC404Plus.sol:60"
+          },
+          {
+            "label": "_owned",
+            "offset": 0,
+            "slot": "65",
+            "type": "t_mapping(t_address,t_array(t_uint256)dyn_storage)",
+            "contract": "ERC404",
+            "src": "contracts\\ERC404Plus.sol:63"
+          },
+          {
+            "label": "_erc721TransferExempt",
+            "offset": 0,
+            "slot": "66",
+            "type": "t_mapping(t_address,t_bool)",
+            "contract": "ERC404",
+            "src": "contracts\\ERC404Plus.sol:66"
+          },
+          {
+            "label": "nonces",
+            "offset": 0,
+            "slot": "67",
+            "type": "t_mapping(t_address,t_uint256)",
+            "contract": "ERC404",
+            "src": "contracts\\ERC404Plus.sol:69"
+          },
+          {
+            "label": "maxSupply",
+            "offset": 0,
+            "slot": "68",
+            "type": "t_uint256",
+            "contract": "ERC404TicketUpgradeable",
+            "src": "contracts\\ERC404.sol:11"
+          },
+          {
+            "label": "IpfsHash",
+            "offset": 0,
+            "slot": "69",
+            "type": "t_string_storage",
+            "contract": "ERC404TicketUpgradeable",
+            "src": "contracts\\ERC404.sol:14"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address",
+            "numberOfBytes": "20"
+          },
+          "t_array(t_uint256)49_storage": {
+            "label": "uint256[49]",
+            "numberOfBytes": "1568"
+          },
+          "t_array(t_uint256)dyn_storage": {
+            "label": "uint256[]",
+            "numberOfBytes": "32"
+          },
+          "t_bool": {
+            "label": "bool",
+            "numberOfBytes": "1"
+          },
+          "t_bytes32": {
+            "label": "bytes32",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_address,t_array(t_uint256)dyn_storage)": {
+            "label": "mapping(address => uint256[])",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_address,t_bool)": {
+            "label": "mapping(address => bool)",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_address,t_mapping(t_address,t_bool))": {
+            "label": "mapping(address => mapping(address => bool))",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_address,t_mapping(t_address,t_uint256))": {
+            "label": "mapping(address => mapping(address => uint256))",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_address,t_uint256)": {
+            "label": "mapping(address => uint256)",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_uint128,t_uint256)": {
+            "label": "mapping(uint128 => uint256)",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_uint256,t_address)": {
+            "label": "mapping(uint256 => address)",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_uint256,t_uint256)": {
+            "label": "mapping(uint256 => uint256)",
+            "numberOfBytes": "32"
+          },
+          "t_string_storage": {
+            "label": "string",
+            "numberOfBytes": "32"
+          },
+          "t_struct(Uint256Deque)11828_storage": {
+            "label": "struct DoubleEndedQueue.Uint256Deque",
+            "members": [
+              {
+                "label": "_begin",
+                "type": "t_uint128",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "_end",
+                "type": "t_uint128",
+                "offset": 16,
+                "slot": "0"
+              },
+              {
+                "label": "_data",
+                "type": "t_mapping(t_uint128,t_uint256)",
+                "offset": 0,
+                "slot": "1"
+              }
+            ],
+            "numberOfBytes": "64"
+          },
+          "t_uint128": {
+            "label": "uint128",
+            "numberOfBytes": "16"
+          },
+          "t_uint256": {
+            "label": "uint256",
+            "numberOfBytes": "32"
+          },
+          "t_uint8": {
+            "label": "uint8",
+            "numberOfBytes": "1"
+          }
+        }
+      }
+    },
+    "3708b82cb5aad752f266f748576cf9a828bcd03e83d1dfdd7dcbd8862b45b0c8": {
+      "address": "0xE6F0C9E9f627B93Fca3a4C09A1a8194eaDC6a295",
+      "txHash": "0xd7972d2ea652736aa3e2ad7637fbd18a86b9064f1076f7fc0c418c0c1333d5a0",
+      "layout": {
+        "solcVersion": "0.8.22",
+        "storage": [
+          {
+            "label": "annualInterestRate",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_uint256",
+            "contract": "ERC20LoanContract",
+            "src": "contracts\\ERC20LoanContract.sol:12"
+          },
+          {
+            "label": "totalLoanPool",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_uint256",
+            "contract": "ERC20LoanContract",
+            "src": "contracts\\ERC20LoanContract.sol:15"
+          },
+          {
+            "label": "loanToken",
+            "offset": 0,
+            "slot": "2",
+            "type": "t_contract(MyToken)352",
+            "contract": "ERC20LoanContract",
+            "src": "contracts\\ERC20LoanContract.sol:17"
+          },
+          {
+            "label": "userLoans",
+            "offset": 0,
+            "slot": "3",
+            "type": "t_mapping(t_address,t_struct(Loan)390_storage)",
+            "contract": "ERC20LoanContract",
+            "src": "contracts\\ERC20LoanContract.sol:31"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address",
+            "numberOfBytes": "20"
+          },
+          "t_contract(MyToken)352": {
+            "label": "contract MyToken",
+            "numberOfBytes": "20"
+          },
+          "t_enum(LoanStatus)376": {
+            "label": "enum ERC20LoanContract.LoanStatus",
+            "members": [
+              "None",
+              "Requested",
+              "Active",
+              "Closed"
+            ],
+            "numberOfBytes": "1"
+          },
+          "t_mapping(t_address,t_struct(Loan)390_storage)": {
+            "label": "mapping(address => struct ERC20LoanContract.Loan)",
+            "numberOfBytes": "32"
+          },
+          "t_struct(Loan)390_storage": {
+            "label": "struct ERC20LoanContract.Loan",
+            "members": [
+              {
+                "label": "amount",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "interest",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "1"
+              },
+              {
+                "label": "startTime",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "2"
+              },
+              {
+                "label": "duration",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "3"
+              },
+              {
+                "label": "repaid",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "4"
+              },
+              {
+                "label": "status",
+                "type": "t_enum(LoanStatus)376",
+                "offset": 0,
+                "slot": "5"
+              }
+            ],
+            "numberOfBytes": "192"
+          },
+          "t_uint256": {
+            "label": "uint256",
+            "numberOfBytes": "32"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+.DS_Store
+.idea
+
+dist
+!dist/.gitkeeper
+node_modules
+
+web-sdk/chainmaker-pb-files/*
+!web-sdk/chainmaker-pb-files/.gitignore
+deploy/nginx/log/*
+deploy/nginx/ssl/*
+!deploy/nginx/log/.gitkeeper
+!deploy/nginx/ssl/.gitkeeper
+test/tmp/*

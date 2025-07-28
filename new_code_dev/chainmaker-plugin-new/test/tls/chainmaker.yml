@@ -1,0 +1,81 @@
+# 192.168.1.108:16302
+log:
+  config_file: ../config/alanhe2/log.yml
+blockchain:
+- chainId: chainalan108
+  genesis: ../config/alanhe2/chainconfig/bc1.yml
+node:
+  type: full
+  org_id: alanhe2
+  priv_key_file: ../config/alanhe2/certs/node/alanhe21/alanhe21.sign.key
+  cert_file: ../config/alanhe2/certs/node/alanhe21/alanhe21.sign.crt
+  signer_cache_size: 1000
+  cert_cache_size: 1000
+  pkcs11:
+    enabled: false
+    library: ""
+    label: ""
+    password: ""
+    session_cache_size: 10
+    hash: SHA256
+net:
+  provider: LibP2P
+  listen_addr: /ip4/0.0.0.0/tcp/11301
+  seeds:
+  - /ip4/0.0.0.0/tcp/11301/p2p/QmYj2iEVGYQ1dnrTJd4nuqdRbY68gZzLGAEjwE1JmnnSBz
+  tls:
+    enabled: true
+    priv_key_file: ../config/alanhe2/certs/node/alanhe21/alanhe21.tls.key
+    cert_file: ../config/alanhe2/certs/node/alanhe21/alanhe21.tls.crt
+txpool:
+  max_txpool_size: 50000
+  max_config_txpool_size: 10
+  full_notify_again_time: 30
+  batch_max_size: 30000
+  batch_create_timeout: 200
+rpc:
+  provider: grpc
+  port: 16302
+  check_chain_conf_trust_roots_change_interval: 60
+  ratelimit:
+    token_per_second: -1
+    token_bucket_size: -1
+  subscriber:
+    ratelimit:
+      token_per_second: 100
+      token_bucket_size: 100
+  tls:
+    mode: twoway
+    priv_key_file: ../config/alanhe2/certs/node/alanhe21/alanhe21.tls.key
+    cert_file: ../config/alanhe2/certs/node/alanhe21/alanhe21.tls.crt
+monitor: null
+pprof: null
+storage:
+  store_path: ../data/alanhe2-alanhe21/ledgerData1
+  unarchive_block_height: 300000
+  blockdb_config:
+    provider: leveldb
+    leveldb_config:
+      store_path: ../data/alanhe2-alanhe21/block
+  statedb_config:
+    provider: leveldb
+    leveldb_config:
+      store_path: ../data/alanhe2-alanhe21/state
+  historydb_config:
+    provider: leveldb
+    leveldb_config:
+      store_path: ../data/alanhe2-alanhe21/history
+  resultdb_config:
+    provider: leveldb
+    leveldb_config:
+      store_path: ../data/alanhe2-alanhe21/result
+  disable_contract_eventdb: true
+  contract_eventdb_config:
+    provider: sql
+    sqldb_config:
+      sqldb_type: mysql
+      dsn: root:password@tcp(127.0.0.1:3306)/
+core:
+  evidence: false
+scheduler:
+  rwset_log: false

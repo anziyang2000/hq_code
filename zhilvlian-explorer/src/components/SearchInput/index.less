@@ -1,0 +1,210 @@
+// 原型设计稿的宽度 1920 高度 2228
+@designWidth: 1920;
+@designHeight: 2228;
+// 移动端原型设计稿的宽度 750 高度 3385
+@designWidthMobile: 750;
+@designHeightMobile: 3385;
+
+.search_input_searchContent {
+  :global {
+    .search_input {
+      width: calc(350 / @designWidth * 100vw) !important;
+      .ant-select-selector {
+        width: 100% !important;
+        height: 40px !important;
+        color: #000 !important;
+        background-color: #FFFFFF !important;
+        border: none !important;
+        border-radius: 4px 0 0 4px !important;
+        .ant-select-selection-search {
+          .ant-select-selection-search-input {
+            height: 40px !important;
+            color: #777C85;
+            font-size: 14px;
+          }
+        }
+        .ant-select-selection-placeholder {
+          color: #777C85;
+          font-size: 14px;
+          line-height: 40px !important;
+        }
+      }
+      .ant-select-clear {
+        color: #777C85;
+        font-size: 14px;
+        background: transparent;
+      }
+    }
+    .ant-select:hover {
+      box-shadow: 0 0 0 1px @Input-Hover-Color;
+    }
+    .ant-select-focused {
+      box-shadow: 0 0 0 1px @Input-Hover-Color;
+    }
+  }
+}
+
+.search_input_searcHeader {
+  width: 100%;
+  :global {
+    .search_input {
+      display: flex;
+      align-items: center;
+      width: calc(350 / @designWidth * 100vw) !important;
+      height: 40px;
+      max-height: 62px !important;
+      overflow: hidden;
+      .ant-select-selector {
+        width: 100% !important;
+        height: 100% !important;
+        color: #000 !important;
+        background: rgba(255, 255, 255, 0.13) !important;
+        border: none !important;
+        border-radius: 6px !important;
+        .ant-select-selection-search {
+          .ant-select-selection-search-input {
+            height: 40px !important;
+            line-height: 40px !important;
+            color: #000;
+            font-size: 14px;
+          }
+        }
+        .ant-select-selection-placeholder {
+          color: #777C85;
+          font-size: 14px;
+          line-height: 40px !important;
+        }
+        .ant-select-selection-item {
+          width: 100%;
+          height: 100%;
+          color: #777C85;
+          font-size: 14px;
+          line-height: 40px !important;
+        }
+      }
+      .ant-select-clear {
+        width: 12px !important;
+        height: 12px !important;
+        color: #777C85;
+        font-size: 14px;
+        background: transparent;
+        // background-color: #000 !important;
+        .anticon {
+          transform: none !important;
+        }
+      }
+    }
+    .ant-select:hover {
+      box-shadow: 0 0 0 1px @Input-Hover-Color;
+    }
+    .ant-select-focused {
+      box-shadow: 0 0 0 1px @Input-Hover-Color;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .search_input_searchContent {
+    :global {
+      .search_input {
+        width: 565px !important;
+        .ant-select-selector {
+          height: calc(64 / @designWidthMobile * 100vw) !important;
+          color: #000 !important;
+          background-color: #FFFFFF !important;
+          border: none !important;
+          border-radius: 4px 0 0 4px !important;
+          .ant-select-selection-search {
+            .ant-select-selection-search-input {
+              height: calc(64 / @designWidthMobile * 100vw) !important;
+              color: #777C85;
+              font-size: calc(28 / @designWidthMobile * 100vw) !important;
+            }
+          }
+          .ant-select-selection-placeholder {
+            color: #777C85;
+            font-size: calc(28 / @designWidthMobile * 100vw) !important;
+            line-height: calc(64 / @designWidthMobile * 100vw) !important;
+          }
+        }
+        .ant-select-clear {
+          color: #777C85;
+          // font-size: calc(14 / @designWidthMobile * 100vw) !important;
+          background: transparent;
+        }
+      }
+      .ant-select:hover {
+        box-shadow: 0 0 0 1px @Input-Hover-Color;
+      }
+      .ant-select-focused {
+        box-shadow: 0 0 0 1px @Input-Hover-Color;
+      }
+    }
+  }
+
+  .search_input_searcHeader {
+    width: 100%;
+    :global {
+      .search_input {
+        display: flex;
+        align-items: center;
+        width: calc(560 / @designWidthMobile * 100vw) !important;
+        height: calc(64 / @designWidthMobile * 100vw) !important;
+        max-height: calc(64 / @designWidthMobile * 100vw) !important;
+        overflow: hidden;
+        // background-color: blue !important;
+        .ant-select-selector {
+          width: 100% !important;
+          height: 100% !important;
+          color: #000 !important;
+          background: rgba(255, 255, 255, 0.13) !important;
+          // background-color: pink !important;
+          border: none !important;
+          border-radius: calc(6 / @designWidthMobile * 100vw) !important;
+          .ant-select-selection-search {
+            .ant-select-selection-search-input {
+              height: calc(64 / @designWidthMobile * 100vw) !important;
+              line-height: calc(64 / @designWidthMobile * 100vw) !important;
+              color: #000;
+              font-size: calc(28 / @designWidthMobile * 100vw) !important;
+            }
+          }
+          .ant-select-selection-placeholder {
+            color: #777C85;
+            font-size: calc(28 / @designWidthMobile * 100vw) !important;
+            line-height: calc(64 / @designWidthMobile * 100vw) !important;
+          }
+          .ant-select-selection-item {
+            width: 100%;
+            height: 100%;
+            color: #777C85;
+            font-size: calc(14 / @designWidthMobile * 100vw) !important;
+            line-height: calc(64 / @designWidthMobile * 100vw) !important;
+          }
+        }
+        .ant-select-clear {
+          width: calc(12 / @designWidthMobile * 100vw) !important;
+          height: calc(12 / @designWidthMobile * 100vw) !important;
+          min-width: 12px !important;
+          min-height: 12px !important;
+          color: #777C85;
+          // font-size: calc(14 / @designWidthMobile * 100vw) !important;
+          background: transparent;
+          display: flex;                  // 启用 flexbox 布局
+          justify-content: center;         // 水平居中
+          align-items: center;             // 垂直居中
+          .anticon {
+            transform: none !important;
+          }
+        }
+      }
+      .ant-select:hover {
+        box-shadow: 0 0 0 1px @Input-Hover-Color;
+      }
+      .ant-select-focused {
+        box-shadow: 0 0 0 1px @Input-Hover-Color;
+      }
+    }
+  }
+}
+

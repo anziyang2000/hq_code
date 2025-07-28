@@ -1,0 +1,28 @@
+/* 全局主题色 */
+.light-theme {
+  /* 主文字色 */
+  --primary-text-color: #222426;
+
+  /* 次文字色 */
+  --secondary-text-color: #777c85;
+
+  /* 背景色 */
+  --primary-bg-color: #fff;
+
+  /* 次背景色 */
+  --secondary-bg-color: #fff;
+}
+
+.dark-theme {
+  /* 主文字色 */
+  --primary-text-color: #fff;
+
+  /* 次文字色 */
+  --secondary-text-color: #777c85;
+
+  /* 背景色 */
+  --primary-bg-color: #101115;
+
+  /* 次背景色 */
+  --secondary-bg-color: #1b1c23;
+}

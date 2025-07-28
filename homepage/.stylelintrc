@@ -1,0 +1,28 @@
+{
+  "extends": ["stylelint-config-standard-scss", "stylelint-prettier/recommended"],
+  "plugins": ["stylelint-order"],
+  "rules": {
+    "order/order": ["custom-properties", "dollar-variables", "declarations", "rules", "at-rules"],
+    "order/properties-alphabetical-order": true,
+    "declaration-empty-line-before": null,
+    "no-duplicate-selectors": null,
+    "no-descending-specificity": [
+      true,
+      {
+        "ignore": ["selectors-within-list"]
+      }
+    ],
+    "selector-pseudo-class-no-unknown": [
+      true,
+      {
+        "ignorePseudoClasses": ["global"]
+      }
+    ],
+    "prettier/prettier": [
+      true,
+      {
+        "endOfLine": "auto"
+      }
+    ]
+  }
+}

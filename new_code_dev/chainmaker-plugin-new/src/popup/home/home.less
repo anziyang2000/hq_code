@@ -1,0 +1,134 @@
+.account-gas-card {
+  border: 1px solid #eee;
+  border-radius: 4px;
+  padding: 12px;
+
+  .gas-account {
+    display: flex;
+    justify-content: left;
+    .gas-account-code {
+      margin-left: 10px;
+      // line-height: 36px;
+    }
+  }
+
+  .gas-balance {
+    padding-top: 2px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 28px;
+    line-height: 40px;
+    color: #101010;
+
+    span {
+      padding-top: 2px;
+      font-size: 16px;
+      margin-left: 5px;
+    }
+  }
+}
+
+// 三排账户信息卡片
+.home-user-card {
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  margin-top: 16px;
+
+  .account-address {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 12px;
+  }
+
+  .account-balance {
+    font-size: 24px;
+    color: #2c81e5;
+    margin-bottom: 16px;
+  }
+
+  .send-btn {
+    margin-top: 8px;
+  }
+}
+
+.contract-ls-t {
+  display: flex;
+  justify-content: space-around; // ✅ 平均分布
+  font-size: 16px;
+  color: #333;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 8px;
+}
+
+.home-tab-active {
+  font-weight: bold;
+}
+
+.home-did-item {
+  margin: -1px 0;
+}
+
+.contract-ls-take {
+  font-size: 16px;
+  color: #2c81e5;
+  cursor: pointer;
+
+  &.no-account {
+    color: #666666;
+    cursor: default;
+  }
+}
+
+.contract-ls-l {
+  margin: 10px -20px 0;
+  border-top: 1px solid #eeeeee;
+}
+
+.contract-ls- {
+  min-height: 244px;
+}
+
+.home-user-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100px;
+
+  .user-row {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 500; // 可选：加粗一点点
+    line-height: 1;
+  }
+}
+
+// AccountCard 组件样式
+.send-btn {
+  background-color: #1677ff;
+  color: #fff;
+  border: none;
+  padding: 6px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: #409eff;
+  }
+}
+
+footer.flex-center {
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  padding: 12px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

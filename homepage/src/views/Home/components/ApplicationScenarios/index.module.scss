@@ -1,0 +1,125 @@
+.main {
+  box-sizing: border-box;
+  height: 842px;
+  margin: 0 auto;
+  padding: 0 var(--min-content-margin);
+
+  /* 公共样式 */
+  .content {
+    width: var(--min-content-width);
+
+    :global(.title) {
+      color: var(--primary-text-color);
+      font-size: 24px;
+      font-weight: 600;
+      height: 33px;
+      line-height: 33px;
+      margin-top: 78px;
+      text-align: left;
+    }
+
+    :global(.desc) {
+      color: var(--secondary-text-color);
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 26px;
+      margin: 24px 0;
+      text-align: left;
+    }
+
+    :global(.ant-btn) {
+      background: #47f;
+      border-radius: 8px;
+      height: 48px;
+      margin-bottom: 24px;
+      width: 140px;
+
+      > span {
+        color: #fff;
+        font-size: 16px;
+        font-weight: 600;
+        height: 22px;
+        line-height: 22px;
+      }
+    }
+  }
+
+  /* 针对 key 样式覆盖 */
+  &.data-register {
+    &.light {
+      background: #f6fbff;
+    }
+
+    &.dark {
+      background: var(--secondary-bg-color);
+
+      .img {
+        border: 1px solid #4d4d4d;
+        border-radius: 24px;
+      }
+    }
+
+    .head {
+      color: var(--primary-text-color);
+      font-size: 36px;
+      font-style: normal;
+      font-weight: 600;
+      height: 50px;
+      line-height: 50px;
+      margin: 122px 0 60px;
+      text-align: center;
+    }
+  }
+
+  &.digital-product {
+    padding-top: 112px;
+
+    &.light {
+      background: var(--primary-bg-color);
+    }
+
+    &.dark {
+      background: var(--primary-bg-color);
+
+      .img {
+        border: 1px solid #4d4d4d;
+        border-radius: 24px;
+      }
+    }
+
+    .wrap {
+      /* 按右向左排列 */
+      flex-direction: row-reverse;
+    }
+
+    .qr {
+      background: no-repeat url('/src/assets/qr_code_bg.webp');
+      background-size: contain;
+      box-sizing: border-box;
+      color: #000;
+      height: 320px;
+      line-height: 25px;
+      padding: 34px;
+      text-align: left;
+      width: 284px;
+
+      :global(.hey) {
+        font-size: 18px;
+        font-weight: 600;
+        height: 25px;
+      }
+
+      :global(.nft) {
+        font-size: 18px;
+        font-weight: 400;
+        height: 25px;
+        margin: 4px 0 33px;
+      }
+
+      > img {
+        margin-left: 37px;
+      }
+    }
+  }
+}

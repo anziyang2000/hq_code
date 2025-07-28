@@ -1,0 +1,50 @@
+.mnemonic-container{
+  margin-top: 20px;
+  .mnemonic-list{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    .mnemonic-item{
+      width: 98px;
+      height: 36px;
+      line-height: 36px;
+      border-radius: 4px;
+      margin-top: 12px;
+      background: #F7F8FA;
+      text-align: center;
+      margin-right: 10px;   
+      font-size: 14px;
+      font-family: PingFangSC-Regular, PingFangSC-Regular;
+      font-weight: 400;
+      color: #333333;
+      &:nth-child(3n){
+        margin-right: 0;
+      }  
+    }
+  }
+  .mnemonic-operate{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-top:12px ;
+    .copy-btn{
+      height: 20px;
+      display: flex;
+      &:hover{
+        cursor: pointer;
+      }
+      span{
+        font-size: 12px;
+        font-family: PingFangSC-Regular, PingFangSC-Regular;
+        font-weight: 400;
+        color: #2C81E5;
+        line-height: 20px;
+        margin-left: 4px;
+      }
+      img{
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+}

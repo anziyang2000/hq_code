@@ -1,0 +1,62 @@
+#全局变量，仓库名与账号信息根据实际更改
+#test
+variables:
+  IMAGE_TAG: 'reg.shukeyun.com:9088/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME:$CI_PIPELINE_ID'
+  Mirror_warehouse: 'reg.shukeyun.com:9088'
+  ##这是之前创建的token
+  TAG: $CI_PIPELINE_ID
+  NS: prod
+  KUBECONFIG: /etc/deploy/config
+  PROJECT_NAME: $CI_PROJECT_NAME
+  KUBECONFIG2PROD: /etc/deploy/kube2prod
+  KUBECONFIG2CANARY: /etc/deploy/kube2canary
+
+include:
+  #- local: deep1.yaml
+  - project: 'maintenance/ci'
+    ref: test
+    file: 'k8s_deploy.yaml'
+
+image: node:latest
+stages:
+  - package
+  - build
+  - deploy
+
+# 打包
+package:
+  stage: package
+  cache:
+    key: cache-$CI_COMMIT_REF_SLUG
+    paths:
+    - .yarn-cache/
+  image: node:18.20
+  tags:
+    - node-runner
+  before_script:
+    - yarn config set cache-folder .yarn-cache
+    - npm config set registry "https://registry.npmmirror.com"
+    - npm install -g cnpm tyarn
+    - cnpm config set registry "https://registry.npmmirror.com/"
+
+  #before_script:
+  # - yarn config set cache-folder .yarn-cache
+  #- npm config set registry "http://registry.npmjs.org/"
+  #- cnpm config set registry "http://registry.npmjs.org/"
+
+  script:
+    #- pwd
+    #- ls  vue.config.js
+    - tyarn install --cache-folder .yarn-cache
+    - tyarn run build:$CI_COMMIT_BRANCH
+    - tar czf $CI_PROJECT_NAME.tar.gz dist/
+  artifacts:
+    paths:
+      - $CI_PROJECT_NAME.tar.gz
+    expire_in: 1 week
+  only:
+    - dev
+    - test
+    - canary
+    - master
+    - canary-tke

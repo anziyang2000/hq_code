@@ -1,0 +1,55 @@
+:root {
+  background-color: #fff;
+  color: #213547;
+  color-scheme: light dark;
+  font-family: PingFangSC, Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-synthesis: none;
+  font-weight: 400;
+  line-height: 24px;
+  text-size-adjust: 100%;
+}
+
+#root {
+  margin: 0 auto;
+  text-align: center;
+}
+
+body {
+  /* header 高度 */
+  --nav-content-height: 68px;
+
+  /* 内容最小宽度 */
+  --min-content-width: 1200px;
+
+  /* 内容的最小边距 */
+  --min-content-margin: 60px;
+
+  font-family: PingFangSC, Arial, Helvetica, sans-serif;
+  margin: 0;
+  min-height: 100vh;
+  place-items: center;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.min-width {
+  width: var(--min-content-width);
+}
+
+.translate-hover {
+  transition: all 0.3s;
+
+  &:hover {
+    cursor: pointer;
+    transform: translateY(-4px);
+  }
+}

@@ -1,0 +1,464 @@
+@import (reference) '~antd/es/style/themes/index';
+@import '~@/assets/fonts/font.less';
+
+// 原型设计稿的宽度 1920 高度 2228
+@designWidth: 1920;
+@designHeight: 2228;
+// 移动端原型设计稿的宽度 750 高度 3385
+@designWidthMobile: 750;
+@designHeightMobile: 3385;
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+html,
+body {
+  overflow: visible !important;
+  // background-color: #060a16 !important;
+  background-color: #F6F7F9 !important;
+}
+
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+canvas {
+  display: block;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+.colorWeak {
+  filter: invert(80%);
+}
+
+.ant-pro .ant-pro-layout .ant-pro-layout-container {
+  // background-color: #060a16;
+  background-color: #F6F7F9 !important;
+}
+
+.homeIndexBg {
+  position: relative !important;
+  background-color: #F6F7F9 !important;
+  // background-color: pink !important;
+  width: 100%;
+}
+
+.detailBg {
+  background-size: 100% 100%;
+  background-attachment: fixed;
+}
+
+.ant-pro-top-nav-header-wide {
+  max-width: none;
+}
+
+ .ant-pro-layout .ant-pro-layout-content {
+  padding-block: 0 !important;
+  padding-inline: 0 !important;
+  background-color: #F6F7F9 !important;  
+}
+
+.ant-pro-global-header-collapsed-button {
+  display: none !important;
+}
+
+.ant-pro-top-nav-header-main {
+  justify-content: space-between;
+  padding-inline: 350px;
+  padding: 0px !important;
+  padding-left: calc(360 / @designWidth * 100vw) !important;
+  padding-right: calc(360 / @designWidth * 100vw) !important;
+  // padding-left: 360px !important;
+  // padding-right: 360px !important;
+  min-width: 1000px !important;
+}
+.ant-pro .ant-layout-header.ant-pro-layout-header {
+  height: 64px;
+  line-height: 64px;
+}
+
+.ant-pro .ant-layout-header.ant-pro-layout-header-fixed-header {
+  height: 64px;
+  background: transparent !important;
+  backdrop-filter: blur(6px);
+}
+
+.ant-pro-top-nav-header-menu {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.ant-pro-top-nav-header-logo > *:first-child {
+  >svg {
+    // background-color: red !important;
+    display: none;
+  }
+  > h1 {
+    // overflow: hidden;
+    // color: #fff;
+    color: #222426;
+    font-weight: 700;
+    font-size: 24px !important;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  > img {
+    width: 40px !important;
+    height: 40px !important;
+  }
+}
+
+.ant-layout {
+  min-height: 100vh;
+}
+
+.ant-layout-header {
+  background: #fff !important;
+  height: 68px !important;
+  line-height: 68px !important;
+}
+
+.ant-pro-global-header {
+  height: 100% !important;
+}
+
+.ant-pro-global-header div {
+  height: 100% !important;
+}
+
+.ant-pro-global-header-logo {
+  margin-right: 30px !important;
+}
+
+.ant-pro-global-header-logo a img {
+  width: 40px !important;
+  height: 40px !important;
+}
+
+.ant-pro-sider.ant-layout-sider.ant-pro-sider-fixed {
+  left: unset;
+}
+
+.ant-statistic-title {
+  color: #767676 !important;
+}
+
+.ant-btn {
+  border-radius: 4px !important;
+}
+
+.ant-picker {
+  border-radius: 4px !important;
+}
+
+.homeInputSelect {
+  width: 100% !important;
+  // .ant-select-selector {
+  //   min-height: 48px !important;
+  // }
+  .ant-select-selection-placeholder {
+    line-height: 3.5 !important;
+  }
+  .ant-select-selection-item {
+    line-height: 3.5 !important;
+  }
+  // .ant-select-selection-search-input {
+  //   min-height: 48px !important;
+  // }
+}
+
+/* 滚动条样式 */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 10px;
+}
+
+/* 滚动槽 */
+::-webkit-scrollbar-track {
+  background-color: #fff;
+  border-radius: 3px;
+  -webkit-box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.3);
+}
+
+/* 滚动条滑块 */
+::-webkit-scrollbar-thumb {
+  background: rgba(89, 96, 112, 0.5);
+  background: rgba(89, 96, 112, 0.2) !important;
+  border-radius: 3px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0);
+  backdrop-filter: blur(6px);
+}
+
+/* 首页顶部的最右侧的选择器 */
+.ant-pro-global-header-right-content .ant-select-selector .ant-select-selection-item {
+  color: #222426 !important;
+  font-weight: 500;
+  font-size: 16px;
+}
+.ant-pro-global-header-right-content .ant-select-arrow .anticon.anticon-down.ant-select-suffix {
+  margin-right: 10px;
+  color: #222426 !important;
+  font-size: 12px;
+  width: 10px;
+  color: #000 !important;
+}
+
+.ant-select.ant-select-single.ant-select-show-arrow {
+  padding-left: 24px;
+}
+.ant-select.ant-select-focused.ant-select-single.ant-select-show-arrow.ant-select-open {
+  padding-left: 24px;
+}
+
+.searchButton {
+  padding: 0 !important;
+  color: #FFFFFF !important;
+  background-color: #4477FF !important;
+  border: none;
+  border-radius: 4px;
+  width: 78px;
+  height: 40px;
+  // line-height: calc(20 / @designHeight * 100vw);
+  max-height: 40px;
+  font-size: 14px;
+  cursor: pointer;
+  white-space: nowrap;
+  
+  display: flex; /* 使用 Flexbox 布局 */
+  justify-content: center; /* 水平居中对齐内容 */
+  align-items: center; /* 垂直居中对齐内容 */
+}
+
+.ant-form-item-control-input-content {
+  display: flex;
+  font-size: 10px !important;
+  // background-color: red !important;
+}
+
+.new_block_icon {
+  width: 20px !important;
+  height: 20px !important;
+  background-image: url(./assets/images/new_block.svg) !important;
+  background-size: cover;
+  background-position: center center;
+}
+
+.new_transtion_icon {
+  width: 20px !important;
+  height: 20px !important;
+  background-image: url(./assets/images/new_transtion.svg) !important;
+  background-size: cover;
+  background-position: center center;
+}
+
+.search_input {
+  width: 100%;
+  border-radius: 4px !important;
+}
+
+.search_input_searcHeader___ga9b3 {
+  width: 100% !important;
+  height: 40px !important;
+  margin-right: 0px !important;
+}
+
+.search_input_searcHeader___ga9b3 .ant-select.search_input.ant-select-focused.ant-select-single.ant-select-allow-clear.ant-select-open.ant-select-show-search .ant-select-clear {
+  // background-color: red !important;
+  position: absolute;
+  // top:  15px!important;
+  right: 25px !important;
+  overflow: visible; /* 不隐藏超出部分 */
+}
+.search_input_searcHeader___ga9b3 .ant-select.search_input.ant-select-focused.ant-select-single.ant-select-allow-clear.ant-select-open.ant-select-show-search .ant-select-clear svg {
+  overflow: visible; /* 不隐藏超出部分 */
+}
+
+.header_right___dyhp1 {
+  width: 95px !important;
+  // background-color: #000 !important;
+  margin-left: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.searchContentBox .ant-select.search_input.ant-select-single.ant-select-allow-clear.ant-select-show-search  .ant-select-selector{
+  height: 100% !important;
+  // width: 300px !important;
+  // background-color: skyblue !important;
+  border: none !important; /* 去掉边框 */
+  box-shadow: none !important; /* 去掉焦点时的阴影 */
+  outline: none !important; /* 确保没有额外的焦点边框 */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+header .ant-select.search_input.ant-select-single.ant-select-allow-clear.ant-select-show-search  .ant-select-selector{
+  height: 100% !important;
+  // width: 300px !important;
+  // background-color: skyblue !important;
+  border: none !important; /* 去掉边框 */
+  box-shadow: none !important; /* 去掉焦点时的阴影 */
+  outline: none !important; /* 确保没有额外的焦点边框 */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+/* 蓝色容器 */
+.ant-select.search_input.ant-select-single.ant-select-allow-clear.ant-select-show-search .ant-select-selector .ant-select-selection-search {
+  display: flex; /* 使用 Flexbox 布局 */
+  align-items: center; /* 垂直居中 */
+  justify-content: center; /* 水平居中，或者根据需要调整 */
+  // background-color: blue !important;
+  height: 100% !important; /* 高度充满父容器 */
+  width: 100%; /* 宽度充满父容器 */
+  overflow: hidden; /* 隐藏超出内容，确保红色不超出蓝色容器 */
+}
+
+/* 红色输入框 */
+.ant-select.search_input.ant-select-single.ant-select-allow-clear.ant-select-show-search .ant-select-selector .ant-select-selection-search input {
+  // background-color: red !important;
+  height: 100% !important; /* 高度充满父容器 */
+  width: 100%; /* 宽度充满父容器 */
+  border: none; /* 移除边框，如果不需要 */
+  outline: none; /* 移除输入框的外边框，如果不需要 */
+  box-sizing: border-box; /* 包括内边距和边框在内计算元素的总宽度和高度 */
+}
+
+.ant-table-tbody .ant-table-measure-row {
+  // background-color: red !important;
+  display: none;
+}
+
+@media (max-width: @screen-xs) {
+  .ant-table {
+    width: 100%;
+    overflow-x: auto;
+    &-thead > tr,
+    &-tbody > tr {
+      > th,
+      > td {
+        white-space: pre;
+        > span {
+          display: block;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 768px) {
+  .search_input_searcHeader___ga9b3 {
+    width: 100% !important;
+    height: calc(64 / @designWidthMobile * 100vw) !important;
+  }
+  .search_input {
+    width: 100%;
+    border-radius: calc(4 / @designWidthMobile * 100vw) !important;
+  }
+  .searchButton {
+    width: calc(124 / @designWidthMobile * 100vw) !important;
+    height: calc(64 / @designWidthMobile * 100vw) !important;
+    max-height: calc(64 / @designWidthMobile * 100vw) !important;
+    font-size: calc(28 / @designWidthMobile * 100vw) !important;
+    border-radius: calc(4 / @designWidthMobile * 100vw) !important;
+  }
+  .new_block_icon {
+    width: calc(36 / @designWidthMobile * 100vw) !important;
+    height: calc(36 / @designWidthMobile * 100vw) !important;
+  }
+  .ant-layout-header {
+    background: #fff !important;
+    height: calc(88 / @designWidthMobile * 100vw) !important;
+    line-height: calc(88 / @designWidthMobile * 100vw) !important;
+  }
+  .ant-pro-global-header-logo a img {
+    width: calc(40 / @designWidthMobile * 100vw) !important;
+    height: calc(40 / @designWidthMobile * 100vw) !important;
+  }
+  .ant-pro-global-header {
+    margin-inline: calc(30 / @designWidthMobile * 100vw) !important;
+  }
+  .ant-pro-global-header-right-content .ant-select-arrow .anticon.anticon-down.ant-select-suffix{
+    margin-right: calc(10 / @designWidthMobile * 100vw) !important;
+    color: #222426 !important;
+    font-size: calc(24 / @designWidthMobile * 100vw) !important;
+    width: 10px;
+    color: #000 !important;
+  }
+  .ant-select.ant-select-single.ant-select-show-arrow {
+    padding-left: calc(24 / @designWidthMobile * 100vw) !important;
+  }
+  .ant-select.ant-select-focused.ant-select-single.ant-select-show-arrow .ant-select-selector {
+    border: none !important; /* 取消边框 */
+    box-shadow: none !important; /* 去除可能的阴影 */
+  }
+  .ant-pro-global-header-right-content .ant-select-arrow .anticon.anticon-down.ant-select-suffix {
+    display: none;
+  }
+  .header_right_line {
+    font-size: calc(24 / @designWidthMobile * 100vw) !important;
+    font-weight: 600;
+    position: fixed;
+    right: calc(30 / @designWidthMobile * 100vw) !important;
+  }
+  .ant-pro-global-header-logo {
+    margin-right: calc(12 / @designWidthMobile * 100vw) !important;
+  }
+  .ant-pro-global-header div h1 {
+    height: 100%;
+    font-weight: 600;
+    font-size: calc(30 / @designWidthMobile * 100vw) !important;
+    color: #222426;
+    margin-bottom: 0px !important;
+    white-space: nowrap;         /* 防止换行 */
+    overflow: hidden;            /* 隐藏超出部分 */
+    text-overflow: ellipsis;     /* 使用省略号表示超出部分 */
+  }
+  // 移动端其他页面的搜索框的div
+  .mobile_search {
+    background-color: #fff;
+    position: absolute;
+    padding: 0 calc(30 / @designWidthMobile * 100vw) !important;
+    margin-top: calc(1 / @designWidthMobile * 100vw) !important;
+    margin-left: calc(-30 / @designWidthMobile * 100vw) !important;
+    top: calc(88 / @designWidthMobile * 100vw) !important;
+    left: 0px;
+    width: calc(750 / @designWidthMobile * 100vw) !important;
+  }
+  .mobile_search .search_input_searcHeader___ga9b3 {
+    display: flex;
+    align-items: center;
+  }
+  .ant-pro-global-header-logo-mobile {
+    min-width: calc(40 / @designWidthMobile * 100vw) !important;
+  }
+  // // 重新刷新页面的时候样式被覆盖的问题
+  .detailBg .ant-row.ant-row-center {
+    padding: 0px calc(30 / @designWidthMobile * 100vw) !important;
+  }
+  .detailBg .ant-row.ant-row-center .ant-col {
+    width: 100%;
+  }
+  /* 禁用滚动条滑块样式 */
+  ::-webkit-scrollbar-thumb {
+    background: transparent !important; /* 设置为透明，使其不可见 */
+  }
+}
+@media (max-width: 200px) {
+  .ant-pro-global-header div h1 {
+    font-size: calc(20 / @designWidthMobile * 100vw) !important;
+  }
+  
+}

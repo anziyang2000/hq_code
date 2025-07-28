@@ -1,0 +1,232 @@
+// 原型设计稿的宽度 1920 高度 2228
+@designWidth: 1920;
+@designHeight: 2228;
+// 移动端原型设计稿的宽度 750 高度 3385
+@designWidthMobile: 750;
+@designHeightMobile: 3385;
+
+.footer_box {
+  color: #333333;
+  font-weight: 400;
+  font-size: 14px;
+  font-family: PingFangSC-Regular, PingFang SC;
+  // background: #0e0d12;
+  background: #F0F6F9;
+  backdrop-filter: blur(26px);
+  margin-top: 70px;
+}
+
+.footer_box .ant-row.ant-row-center {
+  background-color: #fff !important;
+}
+
+.description_href {
+  cursor: pointer;
+  display: block;
+}
+
+.description_href:hover {
+  color: #fff !important;
+}
+
+.foot_title {
+  margin-top: 24px;
+  margin-bottom: 0px;
+  text-align: center;
+  font-family: PingFangSC, PingFang SC;
+  font-weight: 600;
+  font-size: 30px;
+  color: #000000;
+  font-style: normal;
+}
+
+.foot_left {
+  margin-top: 42px;
+  width: 50%;
+}
+.foot_left p{
+  font-family: PingFangSC, PingFang SC;
+  font-weight: 400;
+  font-size: 14px;
+  color: #666666;
+  line-height: 20px;
+  text-align: left;
+  font-style: normal;
+}
+.foot_left button{
+  margin-top: 20px;
+  width: 106px;
+  height: 42px;
+  font-family: PingFangSC, PingFang SC;
+  font-weight: 400;
+  font-size: 18px !important;
+  color: #FFFFFF;
+  line-height: 25px;
+  text-align: center;
+  font-style: normal;
+  background: #4477FF;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap; /* 禁止换行 */
+  min-width: 25px; /* 设置最小宽度，防止过小 */
+}
+
+.foot_right {
+  margin-top: 42px;
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap; /* 允许换行 */
+}
+
+.foot_right p{
+  margin-bottom: 10px;
+  font-family: PingFangSC, PingFang SC;
+  font-weight: 400;
+  font-size: 14px;
+  color: #666666;
+  line-height: 20px;
+  text-align: left;
+  font-style: normal;
+}
+
+.foot_right_right p {
+  margin-top: 10px;
+  margin-bottom: 70px;
+  font-family: PingFangSC, PingFang SC;
+  font-weight: 400;
+  font-size: 14px;
+  color: #666666;
+  line-height: 20px;
+  text-align: justify;
+  font-style: normal;
+}
+
+.foot_bottom_content {
+  text-align: center;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  color: #666666;
+  font-size: 12px;
+  min-width: 1000px !important;
+}
+
+.foot_content {
+  width: 100%;
+}
+
+.foot_right_right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.foot_right_right .ant-image-img {
+  width: 126px;
+  height: 126px;
+}
+
+.total_img {
+  width: 126px;
+  height: 126px;
+}
+
+.footer_placeholder {
+  width: 100%;
+  height: 100%;
+  background-color: #f0f0f0;
+}
+
+.foot_button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .footer_box {
+    margin-top: calc(96 / @designWidthMobile * 100vw) !important;
+  }
+  .foot_bottom_content {
+    text-align: center;
+    margin-top: calc(25 / @designWidthMobile * 100vw) !important;
+    margin-bottom: calc(25 / @designWidthMobile * 100vw) !important;
+    margin-left: calc(25 / @designWidthMobile * 100vw) !important;
+    margin-right: calc(25 / @designWidthMobile * 100vw) !important;
+    color: #666666;
+    font-size: calc(24 / @designWidthMobile * 100vw) !important;
+    min-width: 0px !important;
+  }
+  .foot_title {
+    margin-top: calc(37 / @designWidthMobile * 100vw) !important;
+    margin-bottom: 0px;
+    text-align: left;
+    font-family: PingFangSC, PingFang SC;
+    font-weight: 600;
+    font-size: calc(30 / @designWidthMobile * 100vw) !important;
+    color: #000000;
+    font-style: normal;
+  }
+  .foot_content {
+    display: block !important;
+  }
+  .foot_left {
+    margin-top: calc(30 / @designWidthMobile * 100vw) !important;
+    width: 100%;
+  }
+  .foot_left p{
+    font-family: PingFangSC, PingFang SC;
+    font-weight: 400;
+    font-size: calc(26 / @designWidthMobile * 100vw) !important;
+    color: #666666;
+    line-height: calc(37 / @designWidthMobile * 100vw) !important;
+    text-align: left;
+    font-style: normal;
+  }
+  .foot_left button{
+    margin-top: calc(24 / @designWidthMobile * 100vw) !important;
+    width: calc(160 / @designWidthMobile * 100vw) !important;
+    height: calc(72 / @designWidthMobile * 100vw) !important;
+    font-family: PingFangSC, PingFang SC;
+    font-weight: 400;
+    font-size: calc(28 / @designWidthMobile * 100vw) !important;
+    color: #FFFFFF;
+    line-height: calc(25 / @designWidthMobile * 100vw) !important;
+    text-align: center;
+    font-style: normal;
+    background: #4477FF;
+    border-radius: calc(6 / @designWidthMobile * 100vw) !important;
+    border: none;
+    cursor: pointer;
+    white-space: nowrap; /* 禁止换行 */
+  }
+  .foot_right {
+    margin-top: calc(30 / @designWidthMobile * 100vw) !important;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; /* 允许换行 */
+  }
+  .foot_right_right {
+    display: none;
+  }
+  .foot_right p{
+    margin-bottom: calc(12 / @designWidthMobile * 100vw) !important;
+    font-family: PingFangSC, PingFang SC;
+    font-weight: 400;
+    font-size: calc(26 / @designWidthMobile * 100vw) !important;
+    color: #666666;
+    line-height: calc(37 / @designWidthMobile * 100vw) !important;
+    text-align: left;
+    font-style: normal;
+  }
+  .foot_right_left p:nth-child(3) {
+    margin-bottom: calc(84 / @designWidthMobile * 100vw) !important;
+  }
+  // 重新刷新网页的话样式变化处理
+  .footer_box .ant-row.ant-row-center .ant-col {
+    padding: 0px calc(30 / @designWidthMobile * 100vw) !important;
+  }
+}

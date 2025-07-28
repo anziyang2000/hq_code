@@ -1,0 +1,51 @@
+{
+  "name": "home-page",
+  "private": true,
+  "version": "0.2.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build:dev": "tsc && vite build --mode dev",
+    "build:test": "tsc && vite build --mode test",
+    "build:master": "tsc && vite build --mode production",
+    "preview": "vite preview",
+    "lint": "tsc && eslint . --ext .js,.ts,.jsx,.tsx --fix",
+    "format": "prettier --write \"./**/*.{html,tsx,ts,js,json,md}\"",
+    "lint:style": "stylelint --fix \"src/**/*.scss\"",
+    "prepare": "husky install",
+    "docker:build": "tsc && docker build -t docker-react .",
+    "docker:run": "docker rm -f docker-react && docker run --name docker-react -d -p 80:8082 docker-react",
+    "log:tree": "tree -N -I \"node_modules|.git|.idea\" -a"
+  },
+  "dependencies": {
+    "antd": "^5.18.0",
+    "axios": "^1.6.8",
+    "classnames": "^2.5.1",
+    "dayjs": "^1.11.11",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.22.3"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.2.2",
+    "@commitlint/config-conventional": "^19.2.2",
+    "@types/node": "^20.12.7",
+    "@types/react": "^18.2.79",
+    "@types/react-dom": "^18.2.25",
+    "@vitejs/plugin-react-swc": "^3.6.0",
+    "eslint": "^8.54.0",
+    "eslint-config-code-style-lint-react-ts": "^3.1.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-simple-import-sort": "^12.1.0",
+    "husky": "^9.0.11",
+    "prettier": "^3.2.5",
+    "sass": "^1.75.0",
+    "stylelint": "^16.3.1",
+    "stylelint-config-standard-scss": "^13.1.0",
+    "stylelint-order": "^6.0.4",
+    "stylelint-prettier": "^5.0.0",
+    "typescript": "^5.4.5",
+    "unplugin-auto-import": "^0.17.5",
+    "vite": "^5.2.9"
+  }
+}

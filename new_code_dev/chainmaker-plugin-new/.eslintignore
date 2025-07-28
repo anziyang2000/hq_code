@@ -1,0 +1,8 @@
+node_modules
+dist
+web-sdk/grpc-web
+web-sdk/sdk
+test
+.vscode
+.idea
+./commitlint.config.js

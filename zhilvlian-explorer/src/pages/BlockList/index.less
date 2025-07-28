@@ -1,0 +1,78 @@
+// 原型设计稿的宽度 1920 高度 2228
+@designWidth: 1920;
+@designHeight: 2228;
+
+.paragraph {
+  margin-bottom: 0 !important;
+  overflow: hidden;
+  color: #1890ff !important;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.ant-spin-container {
+  position: relative;
+}
+
+.ant-table-cell.ant-table-cell-ellipsis {
+  width: 192px;
+  // background-color: blue !important;
+}
+.ant-table-cell {
+  width: 192px;
+}
+
+.ant-table-cell.ant-table-cell-ellipsis:first-of-type {
+  width: 100px;
+}
+
+// .ant-table-cell.ant-table-cell-ellipsis
+
+// tr td:first-child {
+//   background-color: red !important;
+//   width: 500px !important;
+// }
+
+.ant-spin-container .ant-pagination.ant-table-pagination.ant-table-pagination-right {
+  width: 100%;
+  // background-color: red;
+  position: absolute;
+  bottom: -100px;
+  display: flex; /* 使其成为 flex 容器 */
+  justify-content: center; /* 水平居中 */
+  align-items: center; /* 垂直居中（如果需要） */
+  text-align: center; /* 确保文本居中 */
+  flex-wrap: nowrap !important;
+}
+
+// 区块列表新增的时间展示不换行
+td.ant-table-cell {
+  white-space: nowrap; /* 禁止换行 */
+}
+
+.ant-table-cell.ant-table-cell-ellipsis span {
+  // background-color: red;
+  white-space: nowrap; /* 防止文本换行 */
+  overflow: hidden; /* 超出部分隐藏 */
+  text-overflow: ellipsis; /* 使用省略号表示超出部分 */
+  max-width: 200px; /* 根据需要设置最大宽度 */
+  display: block; /* 让文本块支持省略号显示 */
+
+}
+
+.ant-table-cell a { 
+  // background-color: red;
+  white-space: nowrap; /* 防止文本换行 */
+  overflow: hidden; /* 超出部分隐藏 */
+  text-overflow: ellipsis; /* 使用省略号表示超出部分 */
+  max-width: 200px; /* 根据需要设置最大宽度 */
+  display: block; /* 让文本块支持省略号显示 */
+  // background-color: red !important;
+}
+
+.anticon.anticon-double-right svg {
+  display: none;
+}
+.anticon.anticon-double-left svg {
+  display: none;
+}

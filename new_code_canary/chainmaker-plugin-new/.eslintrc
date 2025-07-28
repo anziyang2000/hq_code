@@ -1,0 +1,38 @@
+{
+    "extends": [
+      "plugin:react/recommended",
+      "eslint-config-tencent",
+      "eslint-config-tencent/ts",
+      "eslint-config-tencent/prettier"
+    ],
+    "parserOptions": {
+      "ecmaFeatures": {
+        "jsx": true
+      },
+      "ecmaVersion": 8,
+      "sourceType": "module"
+    },
+    "env": {
+      "browser": true,
+      "es6": true,
+      "amd": true
+    },
+    "globals": {
+      "seajs": false,
+      "process": false
+    },
+    "plugins": [
+      "react"
+    ],
+    "settings": {
+      "react": {
+        "version": "detect"
+      }
+    },
+    "rules": {
+      "no-debugger": "error"
+    }
+  }
+  
+
+  
